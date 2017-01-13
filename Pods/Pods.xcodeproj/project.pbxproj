@@ -1,0 +1,733 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09EE83272EB5572D69C3B3165EB68D9B /* Pods-Roll_CallTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 788020014F8FE5CD5B77450441929483 /* Pods-Roll_CallTests-dummy.m */; };
+		2FA7F65733C84CC7EBE29B6674B34BB4 /* Pods-Roll_Call-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB6D95767C1704E980502D34925C06AF /* Pods-Roll_Call-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3789D850F79A1A485C8FD19BA297845F /* Pods-Roll_Call-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F79D036F6225E664BC9398E7F0AD585 /* Pods-Roll_Call-dummy.m */; };
+		4D0F19AC27F2C9654BDE942A4EC84A15 /* Pods-Roll_CallTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 560AD93BCD912D7160D373883A748947 /* Pods-Roll_CallTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5433ECB8A9CAEED4158038929DECFD4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		9B151168EF975E98C3236E69F2A15C88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		084E23A958758E7C18926C7AFD305DC5 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleInterchangeUtilities.framework; path = Frameworks/GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		0F79D036F6225E664BC9398E7F0AD585 /* Pods-Roll_Call-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Roll_Call-dummy.m"; sourceTree = "<group>"; };
+		1A35916BE7A18F1306B5FE6359FCCC78 /* Pods_Roll_Call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roll_Call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E3DD9A508A8526EFA77009EAC54B189 /* Pods-Roll_Call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roll_Call.release.xcconfig"; sourceTree = "<group>"; };
+		2748AD21DDF218425D71F1774FB45991 /* GoogleIPhoneUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleIPhoneUtilities.framework; path = Frameworks/GoogleIPhoneUtilities.framework; sourceTree = "<group>"; };
+		43B782B14FA1B44E458DC012F0D4B1BA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48BD617F11B5F9AF2A0ED03E96873EEB /* FIRInstanceID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRInstanceID.h; path = Headers/Public/FIRInstanceID.h; sourceTree = "<group>"; };
+		4A9C73FCF8EFA14854EFDD69221064EE /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		51CDC3D4630E46CB49B14A36B23B9F6B /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleUtilities.framework; path = Frameworks/GoogleUtilities.framework; sourceTree = "<group>"; };
+		560AD93BCD912D7160D373883A748947 /* Pods-Roll_CallTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Roll_CallTests-umbrella.h"; sourceTree = "<group>"; };
+		63A24DE1E9D1AE583A0DD37B8E4EBDB2 /* Pods-Roll_CallTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roll_CallTests.release.xcconfig"; sourceTree = "<group>"; };
+		6D36BE86E0CBB1B34A580AD492B3284D /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		788020014F8FE5CD5B77450441929483 /* Pods-Roll_CallTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Roll_CallTests-dummy.m"; sourceTree = "<group>"; };
+		7DF2639802F96322AF56ED440648E8D2 /* Pods-Roll_CallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roll_CallTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7E90200CCA73856A72BA0154AF576D6A /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleNetworkingUtilities.framework; path = Frameworks/GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98E11B5EDDE4107327C97213A0F6E574 /* Pods-Roll_Call-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roll_Call-frameworks.sh"; sourceTree = "<group>"; };
+		992D295F1892E7A94B001897924A674F /* FIRMessaging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRMessaging.h; path = Headers/Public/FIRMessaging.h; sourceTree = "<group>"; };
+		A21DFDDA45BDBAA0F124C7F828BF28C4 /* Pods_Roll_CallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roll_CallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4BEFBF2FF6B968155C23151D1865767 /* Pods-Roll_Call.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Roll_Call.modulemap"; sourceTree = "<group>"; };
+		B4F6B7CC7B0DD7154C96AC4D8964E136 /* Pods-Roll_CallTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Roll_CallTests.modulemap"; sourceTree = "<group>"; };
+		B68382BA622883422769E950734D793C /* GoogleParsingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleParsingUtilities.framework; path = Frameworks/GoogleParsingUtilities.framework; sourceTree = "<group>"; };
+		B9D912F7005DA52078276E1E26445CD8 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseDatabase.framework; path = Frameworks/FirebaseDatabase.framework; sourceTree = "<group>"; };
+		BA48812A14050136EBC87138A03C6A36 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleSymbolUtilities.framework; path = Frameworks/GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		C53E8B33A9C9F2CEBCB18497475460E2 /* Pods-Roll_Call-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Roll_Call-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C5F2B303EA28A7DD7441945575180CEE /* Pods-Roll_CallTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Roll_CallTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CB6D95767C1704E980502D34925C06AF /* Pods-Roll_Call-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Roll_Call-umbrella.h"; sourceTree = "<group>"; };
+		CCB7390B01360DEEAA6CA7F0FFC49A73 /* Pods-Roll_CallTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Roll_CallTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CCC5140461F402924DA6D346BEA67C12 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Headers/Firebase.h; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DB2D06CC1312CA212A432478A05F7A23 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD9599631B0F1F6CA0A3E393F406C7B8 /* Pods-Roll_Call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Roll_Call.debug.xcconfig"; sourceTree = "<group>"; };
+		E5600B2263DB5E05FABC209515297450 /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Frameworks/frameworks/FirebaseAuth.framework; sourceTree = "<group>"; };
+		E6627BF4C1171BB17CE24A66A9AAA6DB /* FirebaseMessaging.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseMessaging.framework; path = Frameworks/FirebaseMessaging.framework; sourceTree = "<group>"; };
+		E67DDCA8FE1331B9E0FAD0A5C7441375 /* Pods-Roll_CallTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roll_CallTests-resources.sh"; sourceTree = "<group>"; };
+		E6BCA4D09061FA153242F2F92BC19942 /* Pods-Roll_Call-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Roll_Call-acknowledgements.plist"; sourceTree = "<group>"; };
+		E8263560E5995A407A9976E6837B2957 /* Pods-Roll_CallTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roll_CallTests-frameworks.sh"; sourceTree = "<group>"; };
+		F5514FC1B2D8122DF7C6A2542FC69BC2 /* Pods-Roll_Call-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Roll_Call-resources.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BF85C8F04C2A34AB53DAE3233B1587A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B151168EF975E98C3236E69F2A15C88 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADD5FCB2ACA5E3FEBDD4537D56C0027D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5433ECB8A9CAEED4158038929DECFD4D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		126EBDB203C8C5638B2B84FF5AF24E59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D36BE86E0CBB1B34A580AD492B3284D /* FirebaseAnalytics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		130FA399D35843B8CFCC2C1B74B88B93 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A35916BE7A18F1306B5FE6359FCCC78 /* Pods_Roll_Call.framework */,
+				A21DFDDA45BDBAA0F124C7F828BF28C4 /* Pods_Roll_CallTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		155F2815F3A6E7504C215189B3F572FC /* FirebaseInstanceID */ = {
+			isa = PBXGroup;
+			children = (
+				48BD617F11B5F9AF2A0ED03E96873EEB /* FIRInstanceID.h */,
+				EA8160E868A63739D967A0C73F822235 /* Frameworks */,
+			);
+			path = FirebaseInstanceID;
+			sourceTree = "<group>";
+		};
+		20315AB9EBE18DA5F71A64F6E8FDF4E1 /* Pods-Roll_Call */ = {
+			isa = PBXGroup;
+			children = (
+				DB2D06CC1312CA212A432478A05F7A23 /* Info.plist */,
+				B4BEFBF2FF6B968155C23151D1865767 /* Pods-Roll_Call.modulemap */,
+				C53E8B33A9C9F2CEBCB18497475460E2 /* Pods-Roll_Call-acknowledgements.markdown */,
+				E6BCA4D09061FA153242F2F92BC19942 /* Pods-Roll_Call-acknowledgements.plist */,
+				0F79D036F6225E664BC9398E7F0AD585 /* Pods-Roll_Call-dummy.m */,
+				98E11B5EDDE4107327C97213A0F6E574 /* Pods-Roll_Call-frameworks.sh */,
+				F5514FC1B2D8122DF7C6A2542FC69BC2 /* Pods-Roll_Call-resources.sh */,
+				CB6D95767C1704E980502D34925C06AF /* Pods-Roll_Call-umbrella.h */,
+				DD9599631B0F1F6CA0A3E393F406C7B8 /* Pods-Roll_Call.debug.xcconfig */,
+				1E3DD9A508A8526EFA77009EAC54B189 /* Pods-Roll_Call.release.xcconfig */,
+			);
+			name = "Pods-Roll_Call";
+			path = "Target Support Files/Pods-Roll_Call";
+			sourceTree = "<group>";
+		};
+		298EE9ABF55655FACED7AC38F91E05D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E90200CCA73856A72BA0154AF576D6A /* GoogleNetworkingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		33C208A8929E42A7E40C68EE0F14DA83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5600B2263DB5E05FABC209515297450 /* FirebaseAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		402CDCFAFBF23180F4A83774F7E4BE36 /* GoogleParsingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				E45342BE6D4767C279D8E4BC82D070C0 /* Frameworks */,
+			);
+			path = GoogleParsingUtilities;
+			sourceTree = "<group>";
+		};
+		61F9605753C0479FC39908451BEAA2DA /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				20315AB9EBE18DA5F71A64F6E8FDF4E1 /* Pods-Roll_Call */,
+				9E476761E60A4318A4A8BBA6E67A74A4 /* Pods-Roll_CallTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		71484F35190622A13EE66E18EEB65161 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A65C39A2686AD9C02F8C454FF78F4D4 /* Firebase */,
+				9A663EB37AB449AC4D275A80E5A5601B /* FirebaseAnalytics */,
+				C84C96EF3E4DC0278AE83EA34832FB6B /* FirebaseAuth */,
+				EE9C132CA9870CEFDF2B7408A569BB68 /* FirebaseDatabase */,
+				155F2815F3A6E7504C215189B3F572FC /* FirebaseInstanceID */,
+				D5AC10EF1BC3CF5CCA2756660F71D0E4 /* FirebaseMessaging */,
+				ED40F00B70E3AC8C2FF380238DD9AFB8 /* GoogleInterchangeUtilities */,
+				CAAB0B414C72ECA63C2D94EE2443AD81 /* GoogleIPhoneUtilities */,
+				8B09E4CA2029E28E78D7E645B4733053 /* GoogleNetworkingUtilities */,
+				402CDCFAFBF23180F4A83774F7E4BE36 /* GoogleParsingUtilities */,
+				E307866E743033F8A97B9EB8A2B2482A /* GoogleSymbolUtilities */,
+				945240D98C64BB72D78E00DF51EC97A7 /* GoogleUtilities */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				71484F35190622A13EE66E18EEB65161 /* Pods */,
+				130FA399D35843B8CFCC2C1B74B88B93 /* Products */,
+				61F9605753C0479FC39908451BEAA2DA /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		85B428F982FB9D2BA40E3A1134E8E8D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				084E23A958758E7C18926C7AFD305DC5 /* GoogleInterchangeUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8A65C39A2686AD9C02F8C454FF78F4D4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9F3BDD9E3B82E9B3186DA4AC02D5A574 /* Analytics */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		8B09E4CA2029E28E78D7E645B4733053 /* GoogleNetworkingUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				298EE9ABF55655FACED7AC38F91E05D3 /* Frameworks */,
+			);
+			path = GoogleNetworkingUtilities;
+			sourceTree = "<group>";
+		};
+		945240D98C64BB72D78E00DF51EC97A7 /* GoogleUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				F80FC5AA47DE27845F20536BBD88411E /* Frameworks */,
+			);
+			path = GoogleUtilities;
+			sourceTree = "<group>";
+		};
+		9A663EB37AB449AC4D275A80E5A5601B /* FirebaseAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				126EBDB203C8C5638B2B84FF5AF24E59 /* Frameworks */,
+			);
+			path = FirebaseAnalytics;
+			sourceTree = "<group>";
+		};
+		9E476761E60A4318A4A8BBA6E67A74A4 /* Pods-Roll_CallTests */ = {
+			isa = PBXGroup;
+			children = (
+				43B782B14FA1B44E458DC012F0D4B1BA /* Info.plist */,
+				B4F6B7CC7B0DD7154C96AC4D8964E136 /* Pods-Roll_CallTests.modulemap */,
+				CCB7390B01360DEEAA6CA7F0FFC49A73 /* Pods-Roll_CallTests-acknowledgements.markdown */,
+				C5F2B303EA28A7DD7441945575180CEE /* Pods-Roll_CallTests-acknowledgements.plist */,
+				788020014F8FE5CD5B77450441929483 /* Pods-Roll_CallTests-dummy.m */,
+				E8263560E5995A407A9976E6837B2957 /* Pods-Roll_CallTests-frameworks.sh */,
+				E67DDCA8FE1331B9E0FAD0A5C7441375 /* Pods-Roll_CallTests-resources.sh */,
+				560AD93BCD912D7160D373883A748947 /* Pods-Roll_CallTests-umbrella.h */,
+				7DF2639802F96322AF56ED440648E8D2 /* Pods-Roll_CallTests.debug.xcconfig */,
+				63A24DE1E9D1AE583A0DD37B8E4EBDB2 /* Pods-Roll_CallTests.release.xcconfig */,
+			);
+			name = "Pods-Roll_CallTests";
+			path = "Target Support Files/Pods-Roll_CallTests";
+			sourceTree = "<group>";
+		};
+		9F3BDD9E3B82E9B3186DA4AC02D5A574 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				CCC5140461F402924DA6D346BEA67C12 /* Firebase.h */,
+			);
+			name = Analytics;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BE8C0E0ED80B007305185BDFAFB887F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2748AD21DDF218425D71F1774FB45991 /* GoogleIPhoneUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C84C96EF3E4DC0278AE83EA34832FB6B /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				33C208A8929E42A7E40C68EE0F14DA83 /* Frameworks */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		CAAB0B414C72ECA63C2D94EE2443AD81 /* GoogleIPhoneUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				BE8C0E0ED80B007305185BDFAFB887F4 /* Frameworks */,
+			);
+			path = GoogleIPhoneUtilities;
+			sourceTree = "<group>";
+		};
+		CABFB657CA4664DB0AA126263084D976 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9D912F7005DA52078276E1E26445CD8 /* FirebaseDatabase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5AC10EF1BC3CF5CCA2756660F71D0E4 /* FirebaseMessaging */ = {
+			isa = PBXGroup;
+			children = (
+				992D295F1892E7A94B001897924A674F /* FIRMessaging.h */,
+				D7693887E451B6E8A26825F1B5D3C2E1 /* Frameworks */,
+			);
+			path = FirebaseMessaging;
+			sourceTree = "<group>";
+		};
+		D7693887E451B6E8A26825F1B5D3C2E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6627BF4C1171BB17CE24A66A9AAA6DB /* FirebaseMessaging.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE345E91626DA5A2AF9F9027DB607CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA48812A14050136EBC87138A03C6A36 /* GoogleSymbolUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E307866E743033F8A97B9EB8A2B2482A /* GoogleSymbolUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				DE345E91626DA5A2AF9F9027DB607CEA /* Frameworks */,
+			);
+			path = GoogleSymbolUtilities;
+			sourceTree = "<group>";
+		};
+		E45342BE6D4767C279D8E4BC82D070C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B68382BA622883422769E950734D793C /* GoogleParsingUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA8160E868A63739D967A0C73F822235 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A9C73FCF8EFA14854EFDD69221064EE /* FirebaseInstanceID.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED40F00B70E3AC8C2FF380238DD9AFB8 /* GoogleInterchangeUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				85B428F982FB9D2BA40E3A1134E8E8D2 /* Frameworks */,
+			);
+			path = GoogleInterchangeUtilities;
+			sourceTree = "<group>";
+		};
+		EE9C132CA9870CEFDF2B7408A569BB68 /* FirebaseDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				CABFB657CA4664DB0AA126263084D976 /* Frameworks */,
+			);
+			path = FirebaseDatabase;
+			sourceTree = "<group>";
+		};
+		F80FC5AA47DE27845F20536BBD88411E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				51CDC3D4630E46CB49B14A36B23B9F6B /* GoogleUtilities.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		1735B78205A1FAD6E03498F152D63287 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D0F19AC27F2C9654BDE942A4EC84A15 /* Pods-Roll_CallTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4688898734D3375D5E8B1FC7BD8E3A10 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FA7F65733C84CC7EBE29B6674B34BB4 /* Pods-Roll_Call-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5369904AE5B4DD8A9789D80F66FAE942 /* Pods-Roll_CallTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72530C8CCEFC265B3F354D3E63C0A845 /* Build configuration list for PBXNativeTarget "Pods-Roll_CallTests" */;
+			buildPhases = (
+				54B6C0745A58E1A3CEE5C9DA8A6783CF /* Sources */,
+				5BF85C8F04C2A34AB53DAE3233B1587A /* Frameworks */,
+				1735B78205A1FAD6E03498F152D63287 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Roll_CallTests";
+			productName = "Pods-Roll_CallTests";
+			productReference = A21DFDDA45BDBAA0F124C7F828BF28C4 /* Pods_Roll_CallTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A2D19C39A5742B8C18B4966FAB92E9E8 /* Pods-Roll_Call */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB15AD1EB39E974CB9439179F08DAE69 /* Build configuration list for PBXNativeTarget "Pods-Roll_Call" */;
+			buildPhases = (
+				DF4D9CF2D477F484238C04F7EE372F97 /* Sources */,
+				ADD5FCB2ACA5E3FEBDD4537D56C0027D /* Frameworks */,
+				4688898734D3375D5E8B1FC7BD8E3A10 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Roll_Call";
+			productName = "Pods-Roll_Call";
+			productReference = 1A35916BE7A18F1306B5FE6359FCCC78 /* Pods_Roll_Call.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5369904AE5B4DD8A9789D80F66FAE942 = {
+						LastSwiftMigration = 0810;
+					};
+					A2D19C39A5742B8C18B4966FAB92E9E8 = {
+						LastSwiftMigration = 0810;
+					};
+				};
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 130FA399D35843B8CFCC2C1B74B88B93 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A2D19C39A5742B8C18B4966FAB92E9E8 /* Pods-Roll_Call */,
+				5369904AE5B4DD8A9789D80F66FAE942 /* Pods-Roll_CallTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54B6C0745A58E1A3CEE5C9DA8A6783CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09EE83272EB5572D69C3B3165EB68D9B /* Pods-Roll_CallTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF4D9CF2D477F484238C04F7EE372F97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3789D850F79A1A485C8FD19BA297845F /* Pods-Roll_Call-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1EBCBEA2604C5FEF84608194AB8345BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E3DD9A508A8526EFA77009EAC54B189 /* Pods-Roll_Call.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Roll_Call/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Roll_Call/Pods-Roll_Call.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Roll_Call;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		22BAB8830E49FFFD1672735D4F0256AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DF2639802F96322AF56ED440648E8D2 /* Pods-Roll_CallTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Roll_CallTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Roll_CallTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		84FD87D359382A37B07149A12641B965 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		857CC410CE8AC70607E4E96299B17C01 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63A24DE1E9D1AE583A0DD37B8E4EBDB2 /* Pods-Roll_CallTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Roll_CallTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Roll_CallTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E8E609F05BC9311BFCA6C0DB910553EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD9599631B0F1F6CA0A3E393F406C7B8 /* Pods-Roll_Call.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Roll_Call/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Roll_Call/Pods-Roll_Call.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Roll_Call;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F594C655D48020EC34B00AA63E001773 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84FD87D359382A37B07149A12641B965 /* Debug */,
+				F594C655D48020EC34B00AA63E001773 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72530C8CCEFC265B3F354D3E63C0A845 /* Build configuration list for PBXNativeTarget "Pods-Roll_CallTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22BAB8830E49FFFD1672735D4F0256AD /* Debug */,
+				857CC410CE8AC70607E4E96299B17C01 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB15AD1EB39E974CB9439179F08DAE69 /* Build configuration list for PBXNativeTarget "Pods-Roll_Call" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8E609F05BC9311BFCA6C0DB910553EF /* Debug */,
+				1EBCBEA2604C5FEF84608194AB8345BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

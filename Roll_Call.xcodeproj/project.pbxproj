@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0310C18C1D564D77005C475F /* LoginRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */; };
+		0310C18F1D56515A005C475F /* CourseSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */; };
+		0310C1921D5A43E0005C475F /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C1911D5A43E0005C475F /* Courses.swift */; };
 		036826AB1C600B5D0034A15F /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036826AA1C600B5D0034A15F /* MessageComposer.swift */; };
 		03D6ACA11B88EFE9005E4E3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D6ACA01B88EFE9005E4E3E /* AppDelegate.swift */; };
 		03D6ACA31B88EFE9005E4E3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D6ACA21B88EFE9005E4E3E /* ViewController.swift */; };
@@ -19,6 +22,11 @@
 		03D6ACC51B891284005E4E3E /* ProxyUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D6ACC41B891284005E4E3E /* ProxyUserViewController.swift */; };
 		03D6ACCA1B8A99D3005E4E3E /* SplashRollCall.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D6ACC81B8A99D3005E4E3E /* SplashRollCall.png */; };
 		03D6ACCB1B8A99D3005E4E3E /* SplashRollCall3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D6ACC91B8A99D3005E4E3E /* SplashRollCall3.png */; };
+		03FC7B291E27459700290D89 /* CourseSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FC7B281E27459700290D89 /* CourseSelectionTableViewController.swift */; };
+		162375BCBF7DB83C5393E10F /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1623708B19D4EB9530DC1C5C /* Users.swift */; };
+		16237BD6F1F12063085EE44C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1623778D0003B639C09C65CB /* GoogleService-Info.plist */; };
+		CED310059D6F089E6895054D /* Pods_Roll_Call.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8081AA50D4FD846061D7D3 /* Pods_Roll_Call.framework */; };
+		FFD7E3A5ED638143D4AE4E18 /* Pods_Roll_CallTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EAF7A4CF0E161316070B34 /* Pods_Roll_CallTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0025F3A7DCF9F572D21D6FC9 /* Pods-Roll_CallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roll_CallTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegistrationViewController.swift; path = Roll_Call/LoginRegistrationViewController.swift; sourceTree = "<group>"; };
+		0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionViewController.swift; sourceTree = "<group>"; };
+		0310C1911D5A43E0005C475F /* Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		036826AA1C600B5D0034A15F /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		03C840621D447C370054D150 /* Roll_Call-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roll_Call-Bridging-Header.h"; sourceTree = "<group>"; };
 		03D6AC9B1B88EFE9005E4E3E /* Roll_Call.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roll_Call.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D6AC9F1B88EFE9005E4E3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03D6ACA01B88EFE9005E4E3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +61,14 @@
 		03D6ACC41B891284005E4E3E /* ProxyUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProxyUserViewController.swift; sourceTree = "<group>"; };
 		03D6ACC81B8A99D3005E4E3E /* SplashRollCall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SplashRollCall.png; path = ../../../Downloads/SplashRollCall.png; sourceTree = "<group>"; };
 		03D6ACC91B8A99D3005E4E3E /* SplashRollCall3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SplashRollCall3.png; path = ../../../Downloads/SplashRollCall3.png; sourceTree = "<group>"; };
+		03FC7B281E27459700290D89 /* CourseSelectionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionTableViewController.swift; sourceTree = "<group>"; };
+		0B1B7E0AE14890B860C27964 /* Pods-Roll_Call.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roll_Call.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roll_Call/Pods-Roll_Call.debug.xcconfig"; sourceTree = "<group>"; };
+		1623708B19D4EB9530DC1C5C /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		1623778D0003B639C09C65CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5F35DACCEEC758E10C085750 /* Pods-Roll_Call.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roll_Call.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roll_Call/Pods-Roll_Call.release.xcconfig"; sourceTree = "<group>"; };
+		75AF56D3E553EAEA2226FD19 /* Pods-Roll_CallTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roll_CallTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests.release.xcconfig"; sourceTree = "<group>"; };
+		82EAF7A4CF0E161316070B34 /* Pods_Roll_CallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roll_CallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8081AA50D4FD846061D7D3 /* Pods_Roll_Call.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Roll_Call.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED310059D6F089E6895054D /* Pods_Roll_Call.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,18 +84,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD7E3A5ED638143D4AE4E18 /* Pods_Roll_CallTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0310C18D1D564D95005C475F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0310C19A1D5D03FB005C475F /* RegistrationView */,
+				0310C1991D5D038F005C475F /* CourseTableView */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0310C1901D5A43BE005C475F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0310C1911D5A43E0005C475F /* Courses.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0310C1991D5D038F005C475F /* CourseTableView */ = {
+			isa = PBXGroup;
+			children = (
+				0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */,
+			);
+			name = CourseTableView;
+			sourceTree = "<group>";
+		};
+		0310C19A1D5D03FB005C475F /* RegistrationView */ = {
+			isa = PBXGroup;
+			children = (
+				0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */,
+			);
+			name = RegistrationView;
+			sourceTree = "<group>";
+		};
 		03D6AC921B88EFE9005E4E3E = {
 			isa = PBXGroup;
 			children = (
+				0310C1901D5A43BE005C475F /* Model */,
+				0310C18D1D564D95005C475F /* Views */,
 				03D6AC9D1B88EFE9005E4E3E /* Roll_Call */,
 				03D6ACB31B88EFE9005E4E3E /* Roll_CallTests */,
 				03D6AC9C1B88EFE9005E4E3E /* Products */,
+				86C11FA17960F7830B9AEFDB /* Pods */,
+				F8C5995538C089A115867219 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +159,10 @@
 				03D6ACA71B88EFE9005E4E3E /* Images.xcassets */,
 				03D6ACA91B88EFE9005E4E3E /* LaunchScreen.xib */,
 				03D6AC9E1B88EFE9005E4E3E /* Supporting Files */,
+				1623778D0003B639C09C65CB /* GoogleService-Info.plist */,
+				1623708B19D4EB9530DC1C5C /* Users.swift */,
+				03C840621D447C370054D150 /* Roll_Call-Bridging-Header.h */,
+				03FC7B281E27459700290D89 /* CourseSelectionTableViewController.swift */,
 			);
 			path = Roll_Call;
 			sourceTree = "<group>";
@@ -130,6 +194,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		86C11FA17960F7830B9AEFDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0B1B7E0AE14890B860C27964 /* Pods-Roll_Call.debug.xcconfig */,
+				5F35DACCEEC758E10C085750 /* Pods-Roll_Call.release.xcconfig */,
+				0025F3A7DCF9F572D21D6FC9 /* Pods-Roll_CallTests.debug.xcconfig */,
+				75AF56D3E553EAEA2226FD19 /* Pods-Roll_CallTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F8C5995538C089A115867219 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD8081AA50D4FD846061D7D3 /* Pods_Roll_Call.framework */,
+				82EAF7A4CF0E161316070B34 /* Pods_Roll_CallTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03D6ACBA1B88EFE9005E4E3E /* Build configuration list for PBXNativeTarget "Roll_Call" */;
 			buildPhases = (
+				24F6DB435F92FBC36A7D2ABA /* [CP] Check Pods Manifest.lock */,
 				03D6AC971B88EFE9005E4E3E /* Sources */,
 				03D6AC981B88EFE9005E4E3E /* Frameworks */,
 				03D6AC991B88EFE9005E4E3E /* Resources */,
+				141E94D99CED7CB72CF74F92 /* [CP] Embed Pods Frameworks */,
+				0F143D9EAAA5F7ACD8523B82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03D6ACBD1B88EFE9005E4E3E /* Build configuration list for PBXNativeTarget "Roll_CallTests" */;
 			buildPhases = (
+				BDCBD66D1501E4ED63256CD7 /* [CP] Check Pods Manifest.lock */,
 				03D6ACAC1B88EFE9005E4E3E /* Sources */,
 				03D6ACAD1B88EFE9005E4E3E /* Frameworks */,
 				03D6ACAE1B88EFE9005E4E3E /* Resources */,
+				EC0C675850B75B5A1A7919ED /* [CP] Embed Pods Frameworks */,
+				FF2F302218B045125B8C1E2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,10 +271,13 @@
 				TargetAttributes = {
 					03D6AC9A1B88EFE9005E4E3E = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 6953SNH642;
+						DevelopmentTeam = 2PQD2X7LML;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 					03D6ACAF1B88EFE9005E4E3E = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0810;
 						TestTargetID = 03D6AC9A1B88EFE9005E4E3E;
 					};
 				};
@@ -218,6 +311,7 @@
 				03D6ACCA1B8A99D3005E4E3E /* SplashRollCall.png in Resources */,
 				03D6ACAB1B88EFE9005E4E3E /* LaunchScreen.xib in Resources */,
 				03D6ACA81B88EFE9005E4E3E /* Images.xcassets in Resources */,
+				16237BD6F1F12063085EE44C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,17 +324,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F143D9EAAA5F7ACD8523B82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Roll_Call/Pods-Roll_Call-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		141E94D99CED7CB72CF74F92 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Roll_Call/Pods-Roll_Call-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		24F6DB435F92FBC36A7D2ABA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BDCBD66D1501E4ED63256CD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC0C675850B75B5A1A7919ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF2F302218B045125B8C1E2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03D6AC971B88EFE9005E4E3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0310C1921D5A43E0005C475F /* Courses.swift in Sources */,
 				03D6ACC31B891274005E4E3E /* SignInViewController.swift in Sources */,
 				03D6ACC51B891284005E4E3E /* ProxyUserViewController.swift in Sources */,
 				03D6ACA31B88EFE9005E4E3E /* ViewController.swift in Sources */,
+				03FC7B291E27459700290D89 /* CourseSelectionTableViewController.swift in Sources */,
+				0310C18F1D56515A005C475F /* CourseSelectionViewController.swift in Sources */,
+				0310C18C1D564D77005C475F /* LoginRegistrationViewController.swift in Sources */,
 				036826AB1C600B5D0034A15F /* MessageComposer.swift in Sources */,
 				03D6ACC11B89125D005E4E3E /* CourseSelectionView.swift in Sources */,
 				03D6ACA11B88EFE9005E4E3E /* AppDelegate.swift in Sources */,
+				162375BCBF7DB83C5393E10F /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +491,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -322,6 +515,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "fb7668b0-dc02-4be4-8fae-59cf0bbc5795";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -345,7 +539,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -360,6 +555,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "fb7668b0-dc02-4be4-8fae-59cf0bbc5795";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -368,32 +564,46 @@
 		};
 		03D6ACBB1B88EFE9005E4E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B1B7E0AE14890B860C27964 /* Pods-Roll_Call.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Oscar Criner (2PQD2X7LML)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos10.2]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2PQD2X7LML;
 				INFOPLIST_FILE = Roll_Call/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ohcriner.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antpowell.Roll-Call";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		03D6ACBC1B88EFE9005E4E3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F35DACCEEC758E10C085750 /* Pods-Roll_Call.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 2PQD2X7LML;
 				INFOPLIST_FILE = Roll_Call/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ohcriner.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antpowell.Roll-Call";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		03D6ACBE1B88EFE9005E4E3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0025F3A7DCF9F572D21D6FC9 /* Pods-Roll_CallTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -408,12 +618,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohcriner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roll_Call.app/Roll_Call";
 			};
 			name = Debug;
 		};
 		03D6ACBF1B88EFE9005E4E3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75AF56D3E553EAEA2226FD19 /* Pods-Roll_CallTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -424,6 +636,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ohcriner.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Roll_Call.app/Roll_Call";
 			};
 			name = Release;

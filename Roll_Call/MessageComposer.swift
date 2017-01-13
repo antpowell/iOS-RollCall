@@ -17,7 +17,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate{
         return MFMessageComposeViewController.canSendText()
     }
     
-    func configureMessageComposeViewController(drNum: String, messageBody: String) -> MFMessageComposeViewController{
+    func configureMessageComposeViewController(_ drNum: String, messageBody: String) -> MFMessageComposeViewController{
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self
         messageComposeVC.recipients = [drNum]
@@ -25,8 +25,8 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate{
         return messageComposeVC
     }
     
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }

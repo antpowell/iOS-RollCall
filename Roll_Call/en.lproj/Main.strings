@@ -1,0 +1,39 @@
+
+/* Class = "UITextField"; placeholder = "T# NUMBERS ONLY! EX. 002XXXXX"; ObjectID = "8Iw-jy-Cx9"; */
+"8Iw-jy-Cx9.placeholder" = "T# NUMBERS ONLY! EX. 002XXXXX";
+
+/* Class = "UIBarButtonItem"; title = "Register"; ObjectID = "Bf6-75-LEh"; */
+"Bf6-75-LEh.title" = "Register";
+
+/* Class = "UINavigationItem"; title = "Registration"; ObjectID = "FsM-eA-CHg"; */
+"FsM-eA-CHg.title" = "Registration";
+
+/* Class = "UITextField"; placeholder = "Last Name"; ObjectID = "GPj-lm-K06"; */
+"GPj-lm-K06.placeholder" = "Last Name";
+
+/* Class = "UIBarButtonItem"; title = "Sign In"; ObjectID = "ISc-jU-lBP"; */
+"ISc-jU-lBP.title" = "Sign In";
+
+/* Class = "UITextField"; placeholder = "Proxy's Last Name"; ObjectID = "JXK-ux-ZOZ"; */
+"JXK-ux-ZOZ.placeholder" = "Proxy's Last Name";
+
+/* Class = "UITextField"; placeholder = "Proxy's T# NUMBERS ONLY!"; ObjectID = "Q3t-HL-hEy"; */
+"Q3t-HL-hEy.placeholder" = "Proxy's T# NUMBERS ONLY!";
+
+/* Class = "UINavigationItem"; title = "Proxy User Registration"; ObjectID = "Uew-gm-Ru1"; */
+"Uew-gm-Ru1.title" = "Proxy User Registration";
+
+/* Class = "UINavigationItem"; title = "Sign In"; ObjectID = "hSb-h9-ILF"; */
+"hSb-h9-ILF.title" = "Sign In";
+
+/* Class = "UIButton"; normalTitle = "Sign Roll"; ObjectID = "iBC-g1-YzI"; */
+"iBC-g1-YzI.normalTitle" = "Sign Roll";
+
+/* Class = "UITextField"; placeholder = "Password of The Day"; ObjectID = "iuP-XL-PcO"; */
+"iuP-XL-PcO.placeholder" = "Password of The Day";
+
+/* Class = "UIBarButtonItem"; title = "Proxy User"; ObjectID = "juT-cP-pJD"; */
+"juT-cP-pJD.title" = "Proxy User";
+
+/* Class = "UINavigationItem"; title = "Course Selection"; ObjectID = "qXK-J3-1YD"; */
+"qXK-J3-1YD.title" = "Course Selection";

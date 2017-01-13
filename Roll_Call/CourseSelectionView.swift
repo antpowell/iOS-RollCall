@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, UIPickerViewDataSource {
     
-    let courses = ["  ","CS124", "CS116"]
-    let userDefault = NSUserDefaults.standardUserDefaults()
+    var _courses:[String]! = ["  "/*,"CS124", "CS116", "BIOL131","BIOL132","BIOL143", "BIOL231","BIOL232","BIOL300","BIOL438","BIOL438L", "BIOL443", "GEOL141", "MATH133", "MATH134", "MATH135", "MATH136", "MATH231", "MATH241", "HIST231", "HIST232", "ENG131"*/]
+    let userDefault = UserDefaults.standard
     
     var courseToPass: String!
     var lname: String!
     var tNum: String!
+    var ref: FIRDatabaseReference!
+    var courses: [FIRDataSnapshot]! = []
+    var keyboardOnScreen = false
+    var placeholderImage = UIImage(named: "ic_account_circle")
+    fileprivate var _refHandler: FIRDatabaseHandle!
+    fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
+    var user: FIRUser?
+    var displayName = "Anonymous"
     
+    // MARK: Outlets
     
+    @IBOutlet var courseTable: UITableView!
     @IBOutlet weak var selectionPicker: UIPickerView!
-    
     @IBOutlet weak var signInBtn: UIBarButtonItem!
     
     //@IBOutlet var signInBtn: UINavigationItem!
@@ -29,19 +40,26 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        cancleSignIn()
+        configureDatabase()
         
-        if let primeU = userDefault.stringForKey("lNameKey"){
-            if let primeT = userDefault.stringForKey("tNumKey"){
+        
+        if let primeU = userDefault.string(forKey: "lNameKey"){
+            if let primeT = userDefault.string(forKey: "tNumKey"){
+                debugPrint("User data found. \(primeU): T\(primeT)")
                 print("User data found. \(primeU): T\(primeT)")
             }
         }
         
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        cancleSignIn()
+        
+        
       
         selectionPicker.dataSource = self
         selectionPicker.delegate = self
+        
+        
         
     }
 
@@ -50,29 +68,43 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
         // Dispose of any resources that can be recreated.
         
     }
+    func configureDatabase() {
+        ref = FIRDatabase.database().reference()
+        ref.child("Courses").child("Codes").observeSingleEvent(of: .value, with: {(s) in
+            self._courses = s.value as! [String]
+            print(self._courses);
+            sleep(2)
+            })
+        
+//        _refHandler = ref.child("Courses").child("Codes").observe(.childAdded){(snapshot:FIRDataSnapshot) in
+//            self.courses.append(snapshot)
+//
+//            debugPrint(self.courses)
+//        }
+    }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return courses.count
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return _courses.count
     }
     
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return courses[row]
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return _courses[row]
     }
     
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         getSelection()
     }
     
     func getSelection(){
-        let courseSelected = courses[selectionPicker.selectedRowInComponent(0)]
+        let courseSelected = _courses[selectionPicker.selectedRow(inComponent: 0)]
         courseToPass = courseSelected
         if (courseToPass != "  " || courseToPass != nil) {
-            userDefault.setObject(courseSelected, forKey: "courseKey")
-            if let primeC = userDefault.stringForKey("courseKey"){
+            userDefault.set(courseSelected, forKey: "courseKey")
+            if let primeC = userDefault.string(forKey: "courseKey"){
                 print("Course: \(primeC)")
             }
             //regDoc["Course"] = courseSelected
@@ -84,14 +116,14 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
     }
     
     func cancleSignIn(){
-        signInBtn.enabled = false
+        signInBtn.isEnabled = false
     }
     
     func enableSignIn(){
-        signInBtn.enabled = true
+        signInBtn.isEnabled = true
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Code to pass to the next View
         
     }
