@@ -168,6 +168,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="courseSearchBar" destination="k8r-4e-Duh" id="0ka-r4-hib"/>
                         <outlet property="signInBtn" destination="71l-zD-dVV" id="e5Z-qx-vUQ"/>
                         <outlet property="tableView" destination="ucx-Ak-2Z1" id="48D-WP-GD1"/>
                         <outlet property="tv" destination="ucx-Ak-2Z1" id="uEk-Ob-LlZ"/>

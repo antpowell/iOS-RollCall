@@ -10,16 +10,20 @@ import UIKit
 import Firebase
 
 
-class CourseSelectionTableViewController: UITableViewController {
+class CourseSelectionTableViewController: UITableViewController, UISearchBarDelegate {
     
     var courseToPass: String!
     var lname: String!
     var tNum: String!
     var courseRef: FIRDatabaseReference!
     var _courses:[String]! = []
+    var _filteredCourses:[String]! = []
+    var isUserSearching = false
     
     let userDefault = UserDefaults.standard
+    let searchController = UISearchController(searchResultsController: nil)
 
+    @IBOutlet var courseSearchBar: UISearchBar!
     @IBOutlet var tv: UITableView!
     @IBOutlet var signInBtn: UIBarButtonItem!
     
@@ -29,13 +33,13 @@ class CourseSelectionTableViewController: UITableViewController {
         
         self.navigationItem.setHidesBackButton(true, animated: false)
         cancleSignIn()
+        setupSearchBar()
         configureDatabase()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,22 +54,29 @@ class CourseSelectionTableViewController: UITableViewController {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return _courses.count
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+
+        return isUserSearching ? _filteredCourses.count : _courses.count
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseTextCell", for: indexPath)
-        var dataFound = false
-
-        if(!(_courses.isEmpty)){
-            cell.textLabel?.text = _courses[indexPath.row]
-            dataFound = true
+        if isUserSearching{
+            cell.textLabel?.text = _filteredCourses[indexPath.row]
         }else{
-            cell.textLabel?.text = "Data not collected. Contact admin if problem persist"
+            if(!(_courses.isEmpty)){
+                cell.textLabel?.text = _courses[indexPath.row]
+                
+            }else{
+                cell.textLabel?.text = "Data not collected. Contact admin if problem persist"
+            }
         }
-//        print(dataFound ? "Found courses" : "Data not collected")
+
+        
+
         return cell
     }
     
@@ -98,6 +109,38 @@ class CourseSelectionTableViewController: UITableViewController {
     
         })
         
+    }
+    func setupSearchBar(){
+        courseSearchBar.showsCancelButton = false
+        courseSearchBar.placeholder = "Search courses here"
+        courseSearchBar.delegate = self
+        
+    }
+    
+    func filterCourses(searchText: String, scope: String = "All"){
+        _filteredCourses = _courses.filter{ course in
+            return course.contains(searchText.lowercased())
+        }
+        tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        _filteredCourses = _courses.filter({ (courses: String) -> Bool in
+            return courses.lowercased().range(of: searchText.lowercased()) != nil
+        })
+        if searchText.isEmpty{
+            isUserSearching = false
+            self.tableView.reloadData()
+        }else{
+            isUserSearching = true
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isUserSearching = true
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
     }
     
     func cancleSignIn(){
