@@ -11,14 +11,16 @@ import MessageUI
 import Firebase
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
-
     
     let drNum1 = "8327418926"
     let drNum = "7138998111"
     let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .short)
     let userDefault = UserDefaults.standard
     let messageComposer = MessageComposer()
-    let rootRef = FIRDatabase.database().reference()
+    let rootRef = Database.database().reference()
+    
+    var attendanceRef, userRef: DatabaseReference!
+    var firebaseLoginObject: [String:String]! = [:]
 
     @IBOutlet var courseTitle: UILabel!
     @IBOutlet var enteredPass: UITextField!
@@ -34,8 +36,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let data = labelData
+        configFirebaseDatabase()
+        
+        let data = userDefault.string(forKey: "courseKey")
+        
+        
+        print(data!)
+        print("courseTitle.text = \(data!)")
         courseTitle.text = data
+        print("User:--------\(userDefault.object(forKey: "_student") ?? "--->No User Found!")")
         
         print("Recieved regDoc info: \(getUserData())")
         
@@ -44,7 +53,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         let attendanceRef = rootRef.child("Attendance")
-        attendanceRef.observe(.value){(snap: FIRDataSnapshot) in
+        attendanceRef.observe(.value){(snap: DataSnapshot) in
             
         }
 
@@ -61,7 +70,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 if let primeC = userDefault.string(forKey: "courseKey"){
                     if let primePass = userDefault.string(forKey: "passKey"){
                         
+                        firebaseLoginObject["Last Name"] = primeU
+                        firebaseLoginObject["POD"] = primePass
                         
+
                         return "\(primeC),\(primeU),T\(primeT),\(date),\(primePass)" as NSString
                     }
                     
@@ -89,7 +101,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             print("You have decided to cancel signing the roll.")
     }
         let okAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
-            self.sendRoll()
+            self.sendRollWithSMS()
+            self.sendRollToDB()
         }
         alert.addAction(cancelAction)
         alert.addAction(okAction)
@@ -102,7 +115,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-    func sendRoll(){
+    func sendRollWithSMS(){
         print("Text message prepared.")
         if(self.messageComposer.canSendText()){
             let messageComposeVC = self.messageComposer.configureMessageComposeViewController(self.drNum, messageBody: self.getUserData() as String)
@@ -115,11 +128,30 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
 
     }
+    
+    func configFirebaseDatabase(){
+        attendanceRef = rootRef.child("FBTester").child("Attendance");
+        userRef = rootRef.child("Users")
+    }
+    
+    func sendRollToDB(){
+        let encodedStudent = userDefault.data(forKey: "_student")
+        let unarchivedStudent = NSKeyedUnarchiver.unarchiveObject(with: encodedStudent!) as? Users
+
+
+        attendanceRef.setValue(Signature(
+            course: (userDefault.string(forKey: "courseKey"))!,
+            user: unarchivedStudent!, password: enteredPass.text!).getFormattedSignature())
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
+    deinit{
+//        self.ref.child("Attendance").removeObserverWithHandle(_refHandle)
+    }
     
 
 }

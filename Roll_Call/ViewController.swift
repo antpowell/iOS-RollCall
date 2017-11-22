@@ -7,40 +7,60 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelegate {
-    
+
     @IBOutlet var lNameReg: UITextField!
     @IBOutlet var tNumReg: UITextField!
+    @IBOutlet var passwordReg: UITextField!
+    @IBOutlet var eMailReg: UITextField!
+    
     @IBOutlet var regBtn: UIBarButtonItem!
     
-    let nameSeparatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 220/225, green: 220/225, blue: 220/225, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
     
-    let tNumberSeparatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 220/225, green: 220/225, blue: 220/225, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    let emailSeparatorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 220/225, green: 220/225, blue: 220/225, alpha: 1)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
+    let rootRef: DatabaseReference! = Database.database().reference();
+    var userRef: DatabaseReference!
     var lnChanged = false
     var tnChanged = false
     var userDataFound = false
+    var userDataObject:[String:String] = [:]
+    var loginSigninSuccess = false
     
     let userDefault = UserDefaults.standard
     
     @IBOutlet var registrationInputContainerView: UIView!
+    @IBAction func registrationToCourseSegue(_ sender: Any) {
+        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
+        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+        
+        userDefault.set(encodedStudent, forKey: "_student")
+        userDefault.set(lNameReg.text, forKey: "lNameKey")
+        userDefault.set(tNumReg.text, forKey: "tNumKey")
+        userDefault.set(userDataObject, forKey: "userObject")
+        
+        userDataObject["TNum"] = tNumReg.text
+        userDataObject["Last Name"] = lNameReg.text
+        userDataObject["Email"] = eMailReg.text
+        userDataObject["Password"] = passwordReg.text
+        
+        //        userRef
+        //            .child("T\(userDataObject["TNum"]!)")
+        //            .setValue(userDataObject)
+        
+        //
+//        student.storeUserInDB()
+//        loginSigninSuccess = student.CreateNewUserDB(user: student)
+//        print(student.CreateNewUserDB(user: student))
+//        if(student.CreateNewUserDB(user: student)){
+//            self.performSegue(withIdentifier: "RegisterToCourses", sender: self)
+//        }else{
+//            // show message to use about there error
+//            print("Could not create new user.")
+//        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +68,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
         userDefault.set("Empty", forKey: "lNameKey")
         userDefault.set("Empty", forKey: "tNumKey")
         
-        
+//        userRef = rootRef.child("FBTester").child("Users")
+        userRef = rootRef.child("Users")
+
         cancleReg()
         
-        //lNameReg.delegate = self
+        lNameReg.delegate = self
         tNumReg.delegate = self
+
         
         if getUserData() == true{
             
@@ -83,9 +106,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     }
     
     
-    func endEditingNow(){
+    @objc func endEditingNow(){
         userDefault.set(lNameReg.text, forKey: "lNameKey")
         userDefault.set(tNumReg.text, forKey: "tNumKey")
+        userDefault.set(eMailReg.text, forKey: "Email")
+        userDefault.synchronize()
         
         let lnDefault: AnyObject! = userDefault.string(forKey: "lNameKey") as AnyObject!
         let tnDefualt : AnyObject! = userDefault.string(forKey: "tNumKey") as AnyObject!
@@ -102,13 +127,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == lNameReg{
+        
+        switch textField{
+        case lNameReg:
             self.tNumReg.becomeFirstResponder()
-        }else{
+            break
+        case tNumReg:
+            self.eMailReg.becomeFirstResponder()
+            break
+        case eMailReg:
+            self.passwordReg.becomeFirstResponder()
+            break
+        case passwordReg:
+            break
+        default:
             resign()
         }
         
         return true
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -116,10 +153,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
         
         if Int(text) != nil{
             //enable button here
-            if (text.characters.count==8){
+            if (text.count == 8){
                 textField.textColor = UIColor.black
                 enableReg()
-                }else{
+            }else{
                 cancleReg()
             }
         }else{
@@ -167,19 +204,63 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     func enableReg(){
         if !lNameReg.text!.isEmpty && !tNumReg.text!.isEmpty{
+            if isValidEmailAddress(emailAddressString: eMailReg.text!){
+                regBtn.isEnabled = true
+            }
             regBtn.isEnabled = true
         }
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        userDefault.set(lNameReg.text, forKey: "lNameKey")
-        userDefault.set(tNumReg.text, forKey: "tNumKey")
-        
-        
-    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
+//        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+//
+//        userDefault.set(encodedStudent, forKey: "_student")
+//        userDefault.set(lNameReg.text, forKey: "lNameKey")
+//        userDefault.set(tNumReg.text, forKey: "tNumKey")
+//        userDefault.set(userDataObject, forKey: "userObject")
+//
+//        userDataObject["TNum"] = tNumReg.text
+//        userDataObject["Last Name"] = lNameReg.text
+//        userDataObject["Email"] = eMailReg.text
+//
+//
+////        userRef
+////            .child("T\(userDataObject["TNum"]!)")
+////            .setValue(userDataObject)
+//
+////
+//        student.storeUserInDB()
+//        loginSigninSuccess = student.CreateNewUserDB(user: student)
+//
+//    }
+    
 
+    func isValidEmailAddress(emailAddressString: String) -> Bool {
+        
+        var returnValue = true
+        let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+        
+        do {
+            let regex = try NSRegularExpression(pattern: emailRegEx)
+            let nsString = emailAddressString as NSString
+            let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+            
+            if results.count == 0
+            {
+                returnValue = false
+            }
+            
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            returnValue = false
+        }
+        
+        return  returnValue
+    }
 
 }
 

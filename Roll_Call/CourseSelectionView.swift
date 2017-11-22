@@ -18,13 +18,13 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
     var courseToPass: String!
     var lname: String!
     var tNum: String!
-    var ref: FIRDatabaseReference!
-    var courses: [FIRDataSnapshot]! = []
+    var ref: DatabaseReference!
+    var courses: [DataSnapshot]! = []
     var keyboardOnScreen = false
     var placeholderImage = UIImage(named: "ic_account_circle")
-    fileprivate var _refHandler: FIRDatabaseHandle!
-    fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
-    var user: FIRUser?
+    fileprivate var _refHandler: DatabaseHandle!
+    fileprivate var _authHandle: AuthStateDidChangeListenerHandle!
+    var user: User?
     var displayName = "Anonymous"
     
     // MARK: Outlets
@@ -69,7 +69,7 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
         
     }
     func configureDatabase() {
-        ref = FIRDatabase.database().reference()
+        ref = Database.database().reference()
         ref.child("Courses").child("Codes").observeSingleEvent(of: .value, with: {(s) in
             self._courses = s.value as! [String]
             print(self._courses);

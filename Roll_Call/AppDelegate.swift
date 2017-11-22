@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     override init() {
-        FIRApp.configure()
+        FirebaseApp.configure()
     }
     
     

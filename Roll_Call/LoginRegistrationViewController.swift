@@ -210,7 +210,7 @@ class LoginRegistrationViewController: UIViewController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
-    func segmentControlerHandler(){
+    @objc func segmentControlerHandler(){
         let title =  loginSegmentedController.titleForSegment(at: loginSegmentedController.selectedSegmentIndex)
         registrationButton.setTitle(title, for: UIControlState())
         inputContainerHeightConstraints?.constant = loginSegmentedController.selectedSegmentIndex == 0 ? 100 : 150
@@ -235,7 +235,7 @@ class LoginRegistrationViewController: UIViewController {
     }
     
     
-    func handleLoginRegister(){
+    @objc func handleLoginRegister(){
         if loginSegmentedController.selectedSegmentIndex == 0 {
             handleLogin()
         }else{
@@ -248,9 +248,9 @@ class LoginRegistrationViewController: UIViewController {
                 print("Login Form Not Valid")
                 return
         }
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user: User?, error) in
             if error != nil{
-                print(error)
+                print(error!)
                 return
             }
             self.dismiss(animated: true, completion: nil)
@@ -259,7 +259,7 @@ class LoginRegistrationViewController: UIViewController {
     
     
     func handleReg(){
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text, let tNumber = tNumberTextField.text, tNumberTextField.text?.characters.count == 8
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text, let tNumber = tNumberTextField.text, tNumberTextField.text?.count == 8
             else{
                 inputsContainerView.layer.borderWidth = 3
                 inputsContainerView.layer.borderColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 0.5).cgColor
@@ -268,15 +268,15 @@ class LoginRegistrationViewController: UIViewController {
                 return
         }
         print("Register was pressed.")
-        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user: User?, error) in
             if error != nil{
-                print(error)
+                print(error!)
                 return
             }
             guard let uid = user?.uid else{
                 return
             }
-            let ref = FIRDatabase.database().reference(fromURL: "https://roll-call-2.firebaseio.com/")
+            let ref = Database.database().reference(fromURL: "https://roll-call-2.firebaseio.com/")
             let tNum = "T"+tNumber
             let testref = ref.child("FBTester")
             let IDRef = testref.child("IDs").child(uid)
@@ -287,14 +287,14 @@ class LoginRegistrationViewController: UIViewController {
             
             IDRef.updateChildValues(UIDScheme, withCompletionBlock: { (err, ref) in
                 if err != nil{
-                    print(err)
+                    print(err!)
                     return
                 }
                 print("Saved ID without error")
             })
             userRef.child(tNum).updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if err != nil{
-                    print(err)
+                    print(err!)
                     return
                 }
                 print("Saved user without error")

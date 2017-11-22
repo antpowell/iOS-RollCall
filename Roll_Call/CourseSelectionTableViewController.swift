@@ -15,7 +15,7 @@ class CourseSelectionTableViewController: UITableViewController, UISearchBarDele
     var courseToPass: String!
     var lname: String!
     var tNum: String!
-    var courseRef: FIRDatabaseReference!
+    var courseRef: DatabaseReference!
     var _courses:[String]! = []
     var _filteredCourses:[String]! = []
     var isUserSearching = false
@@ -100,7 +100,7 @@ class CourseSelectionTableViewController: UITableViewController, UISearchBarDele
 
     func configureDatabase(){
         print("Fire 2nd")
-        courseRef = FIRDatabase.database().reference().child("Courses").child("Codes")
+        courseRef = Database.database().reference().child("Courses").child("Codes")
         courseRef.observe(.value, with: { (s) in
                 self._courses = s.value as! [String]
                 print("Courses Found")

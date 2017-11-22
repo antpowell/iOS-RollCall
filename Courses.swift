@@ -19,12 +19,12 @@ class Courses: NSObject {
     
     func getCourseFromDB(){
         
-        let courseRef = FIRDatabase.database().reference().child("Courses").child("Codes")
+        let courseRef = Database.database().reference().child("Courses").child("Codes")
         courseRef.observe(.value, with: { (s) in
             if ((s.value as? [NSArray]) != nil){
                 self.foundCourses = true
                 self.couresDiction = s.value as? [NSArray] as NSArray?
-                print(self.couresDiction)
+                print(self.couresDiction!)
             }else{
                 self.foundCourses = false
             }

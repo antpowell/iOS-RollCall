@@ -72,7 +72,7 @@ class CourseSelectionViewController: UIViewController, UITableViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if FIRAuth.auth()?.currentUser?.uid == nil {
+        if Auth.auth().currentUser?.uid == nil {
             logoutTouchedHandler()
         } else {
             isUserLoggedIn()
@@ -81,9 +81,9 @@ class CourseSelectionViewController: UIViewController, UITableViewDelegate {
 
     }
 
-    func logoutTouchedHandler() {
+    @objc func logoutTouchedHandler() {
         do {
-            try FIRAuth.auth()?.signOut()
+            try Auth.auth().signOut()
         } catch let logoutError {
             print(logoutError)
         }
@@ -91,21 +91,21 @@ class CourseSelectionViewController: UIViewController, UITableViewDelegate {
         present(LoginRegistrationViewController(), animated: true, completion: nil)
     }
     
-    func nextPageHandler(){
+    @objc func nextPageHandler(){
         present(CourseSelectionTableViewController(), animated: true, completion: nil)
     }
 
     func isUserLoggedIn() {
-        let user = FIRAuth.auth()?.currentUser
+        let user = Auth.auth().currentUser
         let uid = user?.uid
 
         if uid != nil {
-            let uidRef = FIRDatabase.database().reference().child("FBTester").child("IDs").child(uid!)
-            let usersRef = FIRDatabase.database().reference().child("FBTester").child("Users")
+            let uidRef = Database.database().reference().child("FBTester").child("IDs").child(uid!)
+            let usersRef = Database.database().reference().child("FBTester").child("Users")
             uidRef.observe(.value, with: {
                 (snapshot) in
                 let dictionary = snapshot.value as? [String:AnyObject]
-                print("DICTION:.... \(dictionary)")
+                print("DICTION:.... \(String(describing: dictionary))")
                 let tNumber = dictionary!["T Number"] as? String
                 let userRef = usersRef.child(tNumber!)
                 userRef.observe(.value, with: {
