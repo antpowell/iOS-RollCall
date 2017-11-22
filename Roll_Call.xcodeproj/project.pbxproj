@@ -16,6 +16,7 @@
 		032106111FC4A21700B1F401 /* roundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032106101FC4A21700B1F401 /* roundedButton.swift */; };
 		032106131FC5D98500B1F401 /* hollowRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032106121FC5D98500B1F401 /* hollowRoundedButton.swift */; };
 		032106161FC5FA9E00B1F401 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032106151FC5FA9E00B1F401 /* DropShadow.swift */; };
+		032106181FC61C8A00B1F401 /* HollowRoundedBlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */; };
 		0352D3441E37D31900184741 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0352D3431E37D31900184741 /* Users.swift */; };
 		036826AB1C600B5D0034A15F /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036826AA1C600B5D0034A15F /* MessageComposer.swift */; };
 		03C5A3701FAF826D006AAA76 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5A36F1FAF826D006AAA76 /* Signature.swift */; };
@@ -59,6 +60,7 @@
 		032106101FC4A21700B1F401 /* roundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundedButton.swift; sourceTree = "<group>"; };
 		032106121FC5D98500B1F401 /* hollowRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hollowRoundedButton.swift; sourceTree = "<group>"; };
 		032106151FC5FA9E00B1F401 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowRoundedBlackButton.swift; sourceTree = "<group>"; };
 		0352D3431E37D31900184741 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		036826AA1C600B5D0034A15F /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		03C5A36F1FAF826D006AAA76 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				032106101FC4A21700B1F401 /* roundedButton.swift */,
 				032106121FC5D98500B1F401 /* hollowRoundedButton.swift */,
 				032106151FC5FA9E00B1F401 /* DropShadow.swift */,
+				032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				03D6ACC11B89125D005E4E3E /* CourseSelectionView.swift in Sources */,
 				03CE154A1FC38369007490BE /* AuthService.swift in Sources */,
 				032106131FC5D98500B1F401 /* hollowRoundedButton.swift in Sources */,
+				032106181FC61C8A00B1F401 /* HollowRoundedBlackButton.swift in Sources */,
 				031FF4DE1EE65D0C0026A9BF /* FirebaseService.swift in Sources */,
 				03D6ACA11B88EFE9005E4E3E /* AppDelegate.swift in Sources */,
 			);
