@@ -22,6 +22,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        FirebaseApp.configure()
+        
+        if Auth.auth().currentUser == nil{
+            let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+            let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            window?.makeKeyAndVisible()
+            window?.rootViewController?.present(LoginVC, animated: true, completion: nil)
+            print("NO USER")
+        }else{
+            print("USER FOUND")
+        }
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.makeKeyAndVisible()
 //        window?.rootViewController = UINavigationController(rootViewController: UINavigationController())

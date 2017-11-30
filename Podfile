@@ -6,7 +6,8 @@ target 'Roll_Call' do
   use_frameworks!
 
 # PromiseKit Pod
-pod "PromiseKit", "~> 4.4"
+pod 'PromiseKit', '~> 4.4'
+pod 'Canvas'
   # Pods from firebase for Roll_Call
 pod ‘Firebase/Core’
 pod 'Firebase/Messaging'

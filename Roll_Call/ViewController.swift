@@ -31,24 +31,25 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     @IBOutlet var registrationInputContainerView: UIView!
     @IBAction func registrationToCourseSegue(_ sender: Any) {
-        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
-        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+//        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
+//        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+//
+//        userDefault.set(encodedStudent, forKey: "_student")
+//        userDefault.set(lNameReg.text, forKey: "lNameKey")
+//        userDefault.set(tNumReg.text, forKey: "tNumKey")
+//        userDefault.set(userDataObject, forKey: "userObject")
+//
+//        userDataObject["TNum"] = tNumReg.text
+//        userDataObject["Last Name"] = lNameReg.text
+//        userDataObject["Email"] = eMailReg.text
+//        userDataObject["Password"] = passwordReg.text
         
-        userDefault.set(encodedStudent, forKey: "_student")
-        userDefault.set(lNameReg.text, forKey: "lNameKey")
-        userDefault.set(tNumReg.text, forKey: "tNumKey")
-        userDefault.set(userDataObject, forKey: "userObject")
+        try! Auth.auth().signOut()
         
-        userDataObject["TNum"] = tNumReg.text
-        userDataObject["Last Name"] = lNameReg.text
-        userDataObject["Email"] = eMailReg.text
-        userDataObject["Password"] = passwordReg.text
+//                userRef
+//                    .child("T\(userDataObject["TNum"]!)")
+//                    .setValue(userDataObject)
         
-        //        userRef
-        //            .child("T\(userDataObject["TNum"]!)")
-        //            .setValue(userDataObject)
-        
-        //
 //        student.storeUserInDB()
 //        loginSigninSuccess = student.CreateNewUserDB(user: student)
 //        print(student.CreateNewUserDB(user: student))
