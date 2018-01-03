@@ -26,7 +26,7 @@ class SignInHandler{
         }
     }
     
-    func creatUserWithEmail(){
+    func creatUserWithEmail(completion: @escaping (Bool) -> ()){
         Auth.auth().createUser(withEmail: eMail, password: password, completion: { (user, error) in
             if error != nil{
                 switch error!.localizedDescription{
@@ -34,32 +34,45 @@ class SignInHandler{
                     print("Password is not strong enough: \(error!.localizedDescription)")
                 case "The email address is already in use by another account.":
                     print("User already exist, Sigining user in...")
-                        self.signInWithEmail()
+                    self.signInWithEmail(completion: {(success) in
+                        self.success = success
+                        completion(success)
+                    })
                 default:
                     print("ERROR: \(error!.localizedDescription)")
                 }
                 //user account alread exist
+                
 
             }else{
                 //User was created inform them of that
                 print("User was created successfully, now logging in")
+                self.success = true
+                completion(self.success)
             }
         })
         
     }
     
-    func signInWithEmail(){
+    func signInWithEmail(completion: @escaping (Bool) -> ()){
         Auth.auth().signIn(withEmail: eMail, password: password, completion: { (user, error) in
             if error != nil{
                 //username or password is incorrect
                 self.success = false
                 print("Username and password not found")
+                
             }else{
                 //User successfully logged in, infrom them of that
-                self.success = true
-                print((user?.email!)! + " has signed in.")
+                DataService.instance.REF_USERS.child((user?.uid)!).observeSingleEvent(of: .value, with: { (s) in
+                    Users.public_instance.formateUser(userSnapshot: s.value(forKey: user!.uid) as! [String : Any], completion: { (currentUser) in
+                        self.success = true
+                        completion(self.success)
+                        print((user?.email!)! + " has signed in.")
+                    })
+                })
             }
         })
+        
     }
     
     func signOut(){

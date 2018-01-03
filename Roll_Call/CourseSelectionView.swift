@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, UIPickerViewDataSource {
     
-    var _courses:[String]! = ["  "/*,"CS124", "CS116", "BIOL131","BIOL132","BIOL143", "BIOL231","BIOL232","BIOL300","BIOL438","BIOL438L", "BIOL443", "GEOL141", "MATH133", "MATH134", "MATH135", "MATH136", "MATH231", "MATH241", "HIST231", "HIST232", "ENG131"*/]
+    var _courses:[String]! = [""]
     let userDefault = UserDefaults.standard
     
     var courseToPass: String!
@@ -52,15 +52,8 @@ class CourseSelectionView: UIViewController, UIPickerViewAccessibilityDelegate, 
             }
         }
         
-        
-        
-        
-      
         selectionPicker.dataSource = self
         selectionPicker.delegate = self
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var courseTitle: UILabel!
     @IBOutlet var enteredPass: UITextField!
+    @IBOutlet var backBtn: UIButton!
     
     var labelData: String! {
         didSet{
@@ -34,16 +35,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        configFirebaseDatabase()
         
         let data = userDefault.string(forKey: "courseKey")
-        
-        
-        print(data!)
         print("courseTitle.text = \(data!)")
         courseTitle.text = data
+        
         print("User:--------\(userDefault.object(forKey: "_student") ?? "--->No User Found!")")
         
         print("Recieved regDoc info: \(getUserData())")
@@ -64,24 +60,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getUserData() -> NSString{
-        if let primeU = userDefault.string(forKey: "lNameKey"){
-            if let primeT = userDefault.string(forKey: "tNumKey"){
-                if let primeC = userDefault.string(forKey: "courseKey"){
-                    if let primePass = userDefault.string(forKey: "passKey"){
-                        
-                        firebaseLoginObject["Last Name"] = primeU
-                        firebaseLoginObject["POD"] = primePass
-                        
-
-                        return "\(primeC),\(primeU),T\(primeT),\(date),\(primePass)" as NSString
-                    }
-                    
-                }
-            }
-        }
-        return "No Data Found"
-        
+    func getUserData() -> String{
+        OneTimeSignature.instance.initSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: userDefault.string(forKey: "passKey")!)
+//        let signature = OneTimeSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: userDefault.string(forKey: "passKey")!)
+        print(OneTimeSignature.instance.formateSignature().description)
+        return OneTimeSignature.instance.formateSignature().description
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -90,6 +73,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signRollNotification(_ sender: AnyObject) {
         userDefault.set(enteredPass.text, forKey: "passKey")
+        
         
         let alert = UIAlertController(title: "You are about to sign the roll.", message: "Your current data consist of: \(getUserData())", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
@@ -110,9 +94,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil )
         
         print(getUserData())
-        
-        
-        
     }
 
     func sendRollWithSMS(){
@@ -125,23 +106,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             errorAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             print("This device can not send text.")
         }
-
-
-    }
-    
-    func configFirebaseDatabase(){
-        attendanceRef = rootRef.child("FBTester").child("Attendance");
-        userRef = rootRef.child("Users")
+        
     }
     
     func sendRollToDB(){
         let encodedStudent = userDefault.data(forKey: "_student")
         let unarchivedStudent = NSKeyedUnarchiver.unarchiveObject(with: encodedStudent!) as? Users
+        OneTimeSignature.instance.signIn()
 
-
-        attendanceRef.setValue(Signature(
-            course: (userDefault.string(forKey: "courseKey"))!,
-            user: unarchivedStudent!, password: enteredPass.text!).getFormattedSignature())
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -149,9 +121,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    deinit{
-//        self.ref.child("Attendance").removeObserverWithHandle(_refHandle)
+    @IBAction func backButtonPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
-    
 
 }

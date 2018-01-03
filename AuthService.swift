@@ -12,27 +12,25 @@ import Firebase
 class AuthService{
     static let instance = AuthService()
     
-    func registerUser(withEmail email:String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool, _ error: Error?) -> ()){
+    func registerUser(withEmail email:String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool,_ user: User?, _ error: Error?) -> ()){
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            guard let user = user else {
-                userCreationComplete(false, error)
-                return
+            if error != nil{
+                //error creating user
+                userCreationComplete(false, nil, error)
+            }else{
+                    userCreationComplete(true, user, error)
             }
-            
-            let userData = ["provider": user.providerID, "email" : user.email]
-            DataService.instance.createUser(uid: user.uid, userData: userData)
-            userCreationComplete(true, nil)
-            
         }
     }
     
-    func loginUser(withEmail email:String, andPassword password: String, loginComplete: @escaping (_ status: Bool, _ error: Error?) -> ()){
+    
+    func loginUser(withEmail email:String, andPassword  password: String, loginComplete: @escaping (_ status: Bool, _ user: User?, _ error: Error?) -> ()){
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil{
-                loginComplete(false, error)
+                loginComplete(false, nil, error)
                 return
             }
-            loginComplete(true, nil)
+            loginComplete(true, user!, nil)
         }
     }
 }

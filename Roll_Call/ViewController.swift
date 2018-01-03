@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelegate {
-
+    
     @IBOutlet var lNameReg: UITextField!
     @IBOutlet var tNumReg: UITextField!
     @IBOutlet var passwordReg: UITextField!
@@ -31,34 +31,34 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     @IBOutlet var registrationInputContainerView: UIView!
     @IBAction func registrationToCourseSegue(_ sender: Any) {
-//        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
-//        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
-//
-//        userDefault.set(encodedStudent, forKey: "_student")
-//        userDefault.set(lNameReg.text, forKey: "lNameKey")
-//        userDefault.set(tNumReg.text, forKey: "tNumKey")
-//        userDefault.set(userDataObject, forKey: "userObject")
-//
-//        userDataObject["TNum"] = tNumReg.text
-//        userDataObject["Last Name"] = lNameReg.text
-//        userDataObject["Email"] = eMailReg.text
-//        userDataObject["Password"] = passwordReg.text
+        //        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
+        //        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+        //
+        //        userDefault.set(encodedStudent, forKey: "_student")
+        //        userDefault.set(lNameReg.text, forKey: "lNameKey")
+        //        userDefault.set(tNumReg.text, forKey: "tNumKey")
+        //        userDefault.set(userDataObject, forKey: "userObject")
+        //
+        //        userDataObject["TNum"] = tNumReg.text
+        //        userDataObject["Last Name"] = lNameReg.text
+        //        userDataObject["Email"] = eMailReg.text
+        //        userDataObject["Password"] = passwordReg.text
         
         try! Auth.auth().signOut()
         
-//                userRef
-//                    .child("T\(userDataObject["TNum"]!)")
-//                    .setValue(userDataObject)
+        //                userRef
+        //                    .child("T\(userDataObject["TNum"]!)")
+        //                    .setValue(userDataObject)
         
-//        student.storeUserInDB()
-//        loginSigninSuccess = student.CreateNewUserDB(user: student)
-//        print(student.CreateNewUserDB(user: student))
-//        if(student.CreateNewUserDB(user: student)){
-//            self.performSegue(withIdentifier: "RegisterToCourses", sender: self)
-//        }else{
-//            // show message to use about there error
-//            print("Could not create new user.")
-//        }
+        //        student.storeUserInDB()
+        //        loginSigninSuccess = student.CreateNewUserDB(user: student)
+        //        print(student.CreateNewUserDB(user: student))
+        //        if(student.CreateNewUserDB(user: student)){
+        //            self.performSegue(withIdentifier: "RegisterToCourses", sender: self)
+        //        }else{
+        //            // show message to use about there error
+        //            print("Could not create new user.")
+        //        }
         
         
     }
@@ -69,18 +69,18 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
         userDefault.set("Empty", forKey: "lNameKey")
         userDefault.set("Empty", forKey: "tNumKey")
         
-//        userRef = rootRef.child("FBTester").child("Users")
+        //        userRef = rootRef.child("FBTester").child("Users")
         userRef = rootRef.child("Users")
-
+        
         cancleReg()
         
         lNameReg.delegate = self
         tNumReg.delegate = self
-
+        
         
         if getUserData() == true{
             
-//            performSegueWithIdentifier("CourseSelection", sender: self)
+            //            performSegueWithIdentifier("CourseSelection", sender: self)
             
             let nextView : AnyObject! = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelection")
             self.show(nextView as! UIViewController, sender: nextView)
@@ -93,7 +93,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
         if ((userDefault.string(forKey: "lNameKey")) != "Empty") {
             let user : AnyObject! = userDefault.string(forKey: "lNameKey") as AnyObject!
             print("Data is \(user)")
-         return true
+            return true
         }else{
             print("false")
             return false
@@ -198,8 +198,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     func cancleReg(){
         regBtn.isEnabled = false
-//        Debug
-//        regBtn.isEnabled = true
+        //        Debug
+        //        regBtn.isEnabled = true
     }
     
     
@@ -214,32 +214,32 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
     
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
-//        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
-//
-//        userDefault.set(encodedStudent, forKey: "_student")
-//        userDefault.set(lNameReg.text, forKey: "lNameKey")
-//        userDefault.set(tNumReg.text, forKey: "tNumKey")
-//        userDefault.set(userDataObject, forKey: "userObject")
-//
-//        userDataObject["TNum"] = tNumReg.text
-//        userDataObject["Last Name"] = lNameReg.text
-//        userDataObject["Email"] = eMailReg.text
-//
-//
-////        userRef
-////            .child("T\(userDataObject["TNum"]!)")
-////            .setValue(userDataObject)
-//
-////
-//        student.storeUserInDB()
-//        loginSigninSuccess = student.CreateNewUserDB(user: student)
-//
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //
+    //        let student = Users(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
+    //        let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: student)
+    //
+    //        userDefault.set(encodedStudent, forKey: "_student")
+    //        userDefault.set(lNameReg.text, forKey: "lNameKey")
+    //        userDefault.set(tNumReg.text, forKey: "tNumKey")
+    //        userDefault.set(userDataObject, forKey: "userObject")
+    //
+    //        userDataObject["TNum"] = tNumReg.text
+    //        userDataObject["Last Name"] = lNameReg.text
+    //        userDataObject["Email"] = eMailReg.text
+    //
+    //
+    ////        userRef
+    ////            .child("T\(userDataObject["TNum"]!)")
+    ////            .setValue(userDataObject)
+    //
+    ////
+    //        student.storeUserInDB()
+    //        loginSigninSuccess = student.CreateNewUserDB(user: student)
+    //
+    //    }
     
-
+    
     func isValidEmailAddress(emailAddressString: String) -> Bool {
         
         var returnValue = true
@@ -262,6 +262,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIApplicationDelega
         
         return  returnValue
     }
-
+    
 }
 

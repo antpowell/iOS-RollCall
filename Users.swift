@@ -17,8 +17,10 @@ class Users: NSObject, NSCoding {
     var _email: String!
     var _password: String!
     var _pod: String!
-    var wasUserCreated: Bool!
+    var wasUserCreated: Bool! = false
     let rootRef: DatabaseReference! = Database.database().reference();
+    
+    static let public_instance = Users()
     
     override init(){}
     
@@ -26,6 +28,7 @@ class Users: NSObject, NSCoding {
         self._lastName = decoder.decodeObject(forKey:"_lastName") as? String
         self._tNum = decoder.decodeObject(forKey:"_tNum") as? String
         self._email = decoder.decodeObject(forKey:"_email") as? String
+        self.wasUserCreated = true
     }
     
     init(name:String, id:String, email:String, password:String){
@@ -33,22 +36,39 @@ class Users: NSObject, NSCoding {
         self._tNum = "T\(id)";
         self._email = email;
         self._password = password;
-        
+        self.wasUserCreated = true
     }
+    
     init(name:String, id:String, email:String) {
         self._lastName = name;
         self._tNum = "T\(id)";
         self._email = email;
+        self.wasUserCreated = true
     }
     
+    func setInitValues(name:String, id:String, email:String) {
+        self._lastName = name;
+        self._tNum = "T\(id)";
+        self._email = email;
+        self.wasUserCreated = true
+    }
+    
+    func setInitValues(name:String, id:String, email:String, password:String) {
+        self._lastName = name;
+        self._tNum = "T\(id)";
+        self._email = email;
+        self._password = password;
+        self.wasUserCreated = true
+    }
     
     func getUser() -> [String: Any]{
-        let userObj = [_tNum:
-            ["_email":_email,
-             "_lastName": _lastName,
-             "_tNum": _tNum]
-        ]
-        return userObj
+        return ["_email":_email,
+               "_lastName": _lastName,
+               "_tNum": _tNum]
+    }
+    
+    func getUserAsUsers() -> Users{
+        return self
     }
     
     /**
@@ -61,32 +81,24 @@ class Users: NSObject, NSCoding {
     func storeUserInDB(){
         rootRef.child("Users")
             .child(_tNum)
-            .setValue(["_email":_email!,
+            .setValue(["_email": _email!,
                        "_lastName": _lastName!,
                        "_tNum": _tNum!])
     }
     
-    func CreateNewUserDB(user:Users) -> Bool{
+    func createUserWEmail(user:Users, completion: @escaping (Bool) -> ()){
         let signInHandler = SignInHandler(user:user, pw:_password)
-        signInHandler.creatUserWithEmail()
-        print(Auth.auth().currentUser! as Any)
-        print(signInHandler.success)
-        return signInHandler.success
+        signInHandler.creatUserWithEmail { _ in
+            print("Our completion says: \(signInHandler.success)")
+            completion(signInHandler.success)
+        }
     }
     
-//    func CreateNewUser(user:Users) -> Promise<Bool>{
-//        return Promise({fulfil, error in
-//            DispatchQueue.global(qos: .background).async {
-//                if let signInHanderler = SignInHandler(user:user, pw:_password){
-//                    fulfil(true)
-//                }else{
-//                    reject(error)
-//                }
-//            }
-//        })
-//    }
+    func createUserWGoogle(user:Users){
+        
+    }
     
-    func CreateNewUserWithGoogle(user:Users){
+    func createUserWFb(user:Users){
         
     }
     
@@ -96,6 +108,20 @@ class Users: NSObject, NSCoding {
         coder.encode(_email, forKey: "_email")
     }
     
+    func formateUser(userSnapshot: [String: Any], completion: @escaping (Users) -> ()){
+        print(userSnapshot.description)
+        self._tNum = userSnapshot["_tNum"] as! String
+        self._email = userSnapshot["_email"] as! String
+        self._lastName = userSnapshot["_lastName"] as! String
+        self.wasUserCreated = true
+        completion(self)
+    }
+    
+    func createUserRecord(_ user: User, recordWasCreated: @escaping (Bool) -> ()){
+        DataService.instance.storeUserDataInDB(user: user) { (wasUserDataStored) in
+            recordWasCreated(wasUserDataStored)
+        }
+    }
     
 
 }

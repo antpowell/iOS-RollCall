@@ -10,15 +10,13 @@ import Foundation
 
 class Signature: NSObject{
     var _course: String!
-    var _user: Users!
     var _date: String!
     var _time: String!
     var _pass: String!
     var userSig: [String: Any]!
     
-    init(course: String, user: Users, password: String){
+    init(course: String, password: String){
         _course = course
-        _user = user
         _pass = password
     }
     
@@ -37,11 +35,10 @@ class Signature: NSObject{
     
     func getFormattedSignature() -> Dictionary<String, Any>{
         setDateTime()
-        userSig = _user.getUser()[_user._tNum]! as! [String : Any]
+        userSig = Users.public_instance.getUser()
         userSig["POD"] = _pass
         userSig["Time"] = _time
-        let signature = [_course:[_date:[_user._tNum:userSig]]]
-//        signature["_course"]=_course
+        let signature = [_course:[_date:[userSig["_tNum"] as! String:userSig!]]]
         return signature
     }
 }

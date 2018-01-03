@@ -31,7 +31,7 @@ class CourseSelectionTableViewController: UITableViewController, UISearchBarDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.navigationItem.setHidesBackButton(true, animated: false)
         cancleSignIn()
         setupSearchBar()
         configureDatabase()
@@ -150,6 +150,7 @@ class CourseSelectionTableViewController: UITableViewController, UISearchBarDele
     func enableSignIn(){
         signInBtn.isEnabled = true
     }
+    
     deinit {
         courseRef.removeAllObservers()
     }
