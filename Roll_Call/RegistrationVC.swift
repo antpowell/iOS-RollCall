@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class RegistrationVC: UIViewController, UITextFieldDelegate {
     
@@ -24,6 +25,8 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
     var loginSigninSuccess = false
     
     let userDefault = UserDefaults.standard
+    
+    let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBAction func registrationToCourseSegue(_ sender: Any) {
         registerUser()
@@ -43,29 +46,52 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
         
         lNameReg.delegate = self
         tNumReg.delegate = self
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
  
     }
     
     func registerUser(){
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         AuthService.instance.registerUser(withEmail: eMailReg.text!, andPassword: passwordReg.text!) { (success, user, err) in
             if success {
                 Users.public_instance.setInitValues(name:self.lNameReg.text!, id:self.tNumReg.text!, email:self.eMailReg.text!, password: self.passwordReg.text!)
                 DataService.instance.storeUserDataInDB(user: user!, userStored: { (success) in
                     if (success) {
-                        print("Now we have a user from all callbacks.")
-                        let courseSelectionView = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelectionVC")
-                        self.present(courseSelectionView!, animated: true, completion: nil)
+                        UIApplication.shared.endIgnoringInteractionEvents()
+                        self.activityIndicator.stopAnimating()
+                        let appearance = SCLAlertView.SCLAppearance(
+                            showCloseButton: false
+                        )
+                        let alert = SCLAlertView(appearance: appearance)
+                        alert.addButton("OK", action: {
+                            print("Now we have a user from all callbacks.")
+                            let courseSelectionView = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelectionVC")
+                            self.present(courseSelectionView!, animated: true, completion: nil)
+                        })
+                        alert.showSuccess("Congratulations", subTitle: "Log in successful")
                     }
                 })
             }else if err != nil{
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.activityIndicator.stopAnimating()
+                
                 switch err!.localizedDescription{
                 case "The password must be 6 characters long or more.":
                     print("Password is not strong enough: \(err!.localizedDescription)")
+                    SCLAlertView().showError("Login Error", subTitle: err!.localizedDescription)
                 case "The email address is already in use by another account.":
                     print("User already exist, Sigining user in...")
+                    SCLAlertView().showError("Login Error", subTitle: err!.localizedDescription)
                     // user already has an account with that email send them to sign in with that email.
                 default:
                     print("ERROR: \(err!.localizedDescription)")
+                    SCLAlertView().showError("Login Error", subTitle: err!.localizedDescription)
                 }
             }
             

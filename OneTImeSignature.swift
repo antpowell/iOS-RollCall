@@ -14,6 +14,7 @@ class OneTimeSignature{
     private var _user_lname: String!
     private var _password_of_the_day:String!
     private var _date:String?
+    private var dbDate:String?
     private var _time:String?
     private var _user:Users?
     private var user_data: [String: Any]?
@@ -40,13 +41,18 @@ class OneTimeSignature{
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
-        dateFormatter.dateFormat = "E, MMM d, yyyy"
+        dateFormatter.dateFormat = "dd/MM/yy"
+        let DBDateFormatter = DateFormatter()
+        DBDateFormatter.dateStyle = .long
+        DBDateFormatter.timeStyle = .none
+        DBDateFormatter.dateFormat = "E, MMM d, yyyy"
         let timeFormatter  = DateFormatter()
         timeFormatter.dateStyle = .none
         timeFormatter.timeStyle = .medium
         timeFormatter.dateFormat = "HH:mm"
         _date = dateFormatter.string(from: Date())
         _time = timeFormatter.string(from: Date())
+        dbDate = DBDateFormatter.string(from: Date())
     }
     
     func formateSignature() -> [String: Any]{
@@ -56,18 +62,22 @@ class OneTimeSignature{
         user_data!["POD"] = _password_of_the_day
         user_data!["Time"] = _time
         //        let signature = [_course!:[_date!:[_UID!:user_data!]]]
-        let signature = user_data as! [String: Any]
-        return signature
+        return user_data as! [String: Any]
     }
     
     func printSignature() -> String {
         formateSignature()
-//        return "Last Name: \(user_data!["_lastName"]!)\nTNumber: \(user_data!["_tNum"]!)\nEmail: \(user_data!["_email"]!)\nPassword of the day: \(user_data!["POD"]!)\nTime: \(user_data!["Time"]!)"
-        return "nil"
+        return "Last Name: \(user_data!["_lastName"]!)\nTNumber: \(user_data!["_tNum"]!)\nEmail: \(user_data!["_email"]!)\nPassword of the day: \(user_data!["POD"]!)\nTime: \(user_data!["Time"]!)"
+    }
+    
+    func smsSignature() -> String {
+        
+        print("(\(_course!),\(user_data!["_lastName"]!),\(user_data!["_tNum"]!),\(_date!) \(_time!),\(user_data!["POD"]!))")
+        return "(\(_course!),\(user_data!["_lastName"]!),\(user_data!["_tNum"]!),\(_date!) \(_time!),\(user_data!["POD"]!))"
     }
     
     func signIn(){
-        DataService.instance.REF_ATTENDANCE.child(_course).child(_date!).child(_UID).setValue(user_data as [String:Any]!)
+        DataService.instance.REF_ATTENDANCE.child(_course).child(dbDate!).child(_UID).setValue(user_data as [String:Any]!)
     }
     
     

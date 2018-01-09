@@ -39,7 +39,7 @@ class SignInVC: UIViewController, UITextViewDelegate {
                 withEmail: userEmailAddressField.text!, andPassword: userPasswordField.text!, loginComplete: {
                     (success, user, loginError) in
                     if success {
-                        DataService.instance.fetchUser(user: user!, completion: { (currentUser) in
+                        DataService.instance.fetchUser(withUser: user!, completion: { (currentUser) in
                             if currentUser.wasUserCreated {
                                 UIApplication.shared.endIgnoringInteractionEvents()
                                 self.activityIndicator.stopAnimating()

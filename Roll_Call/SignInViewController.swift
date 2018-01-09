@@ -27,11 +27,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var enteredPass: UITextField!
     @IBOutlet var backBtn: UIButton!
     
-    var labelData: String! {
-        didSet{
-            print("\(labelData)... Recieved")
-        }
-    }
+//    var labelData: String! {
+//        didSet{
+//            print("\(labelData)... Recieved")
+//        }
+//    }
 
     
     override func viewDidLoad() {
@@ -40,19 +40,15 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         let data = userDefault.string(forKey: "courseKey")
         print("courseTitle.text = \(data!)")
         courseTitle.text = data
-        
-        print("User:--------\(userDefault.object(forKey: "_student") ?? "--->No User Found!")")
-        
-        print("Recieved regDoc info: \(getUserData())")
+//
+//        print("User:--------\(userDefault.object(forKey: "_student") ?? "--->No User Found!")")
+//
+//        print("Recieved regDoc info: \(Users.public_instance.getUser())")
         
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let attendanceRef = rootRef.child("Attendance")
-        attendanceRef.observe(.value){(snap: DataSnapshot) in
-            
-        }
 
     }
 
@@ -61,13 +57,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func getUserData() -> String{
-        DataService.instance.fetchUser { (_) in
+    func getUserData(completion: @escaping () ->())/* -> String */{
+        DataService.instance.fetchUser { _  in
+            OneTimeSignature.instance.initSignature(course: self.userDefault.string(forKey: "courseKey")!, password_of_the_day: self.enteredPass.text!)
+            print("One time sig:\n\(OneTimeSignature.instance.formateSignature().description)")
+            completion()
         }
-        OneTimeSignature.instance.initSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: enteredPass.text!)
-        
-        print(OneTimeSignature.instance.formateSignature().description)
-        return OneTimeSignature.instance.formateSignature().description
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -79,23 +74,24 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             let alert = SCLAlertView()
             alert.showError("WHOA", subTitle: "Must enter Password of The Day")
         }else{
-            getUserData()
-            let SCLAlert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
-            SCLAlert.addButton("Use this signature") {
-                self.sendRollWithSMS()
-                self.sendRollToDB()
-            }
-            SCLAlert.addButton("Cancel") {
-                SCLAlertView().showWarning("Canceling...", subTitle: "Your signature was not applied to the roll.")
-            }
-            let alertResponder:SCLAlertViewResponder = SCLAlert.showNotice("Verify Your Signature", subTitle: "\(OneTimeSignature.instance.printSignature())")
+            getUserData(completion: {
+                let SCLAlert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+                SCLAlert.addButton("Use this signature") {
+                    self.sendRollWithSMS()
+                    self.sendRollToDB()
+                }
+                SCLAlert.addButton("Cancel") {
+                    SCLAlertView().showWarning("Canceling...", subTitle: "Your signature was not applied to the roll.")
+                }
+                let alertResponder:SCLAlertViewResponder = SCLAlert.showNotice("Verify Your Signature", subTitle: "\(OneTimeSignature.instance.printSignature())")
+            })
         }
     }
 
     func sendRollWithSMS(){
         print("Text message prepared.")
         if(self.messageComposer.canSendText()){
-            let messageComposeVC = self.messageComposer.configureMessageComposeViewController(self.drNum, messageBody: self.getUserData() as String)
+            let messageComposeVC = self.messageComposer.configureMessageComposeViewController(self.drNum, messageBody: OneTimeSignature.instance.smsSignature() as String)
             self.present(messageComposeVC, animated: true, completion: nil)
         }else{
             let errorAlert = UIAlertController(title: "Cannot Send Text Message", message: "Your device is not able to send text messages.", preferredStyle: UIAlertControllerStyle.alert)

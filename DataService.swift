@@ -61,7 +61,7 @@ class DataService{
         }
     }
     
-    func fetchUser(user:User, completion: @escaping (Users) -> ()){
+    func fetchUser(withUser user:User, completion: @escaping (Users) -> ()){
         self.REF_USERS.child(user.uid).observeSingleEvent(of: .value, with: { (s) in
             let userData = s.value as! [String: Any]
             Users.public_instance.formateUser(userSnapshot: userData, completion: { (user) in

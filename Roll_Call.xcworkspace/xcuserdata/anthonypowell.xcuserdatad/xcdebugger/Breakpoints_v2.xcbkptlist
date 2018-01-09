@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DataService.swift"
-            timestampString = "537209694.8819619"
+            timestampString = "537226629.2347701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roll_Call/SignInVC.swift"
-            timestampString = "537209694.882067"
+            timestampString = "537226629.234866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roll_Call/SignInVC.swift"
-            timestampString = "537209694.882126"
+            timestampString = "537226629.235184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -106,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Users.swift"
-            timestampString = "537209694.882195"
+            timestampString = "537220124.3702641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
             endingLineNumber = "132"
-            landmarkName = "createUserWGoogle(user:)"
+            landmarkName = "formateUser(userSnapshot:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +122,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Users.swift"
-            timestampString = "537209694.8822351"
+            timestampString = "537220124.370535"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
-            landmarkName = "createUserWGoogle(user:)"
+            landmarkName = "formateUser(userSnapshot:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -154,7 +154,7 @@
                   moduleName = "Roll_Call"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/SignInHandler.swift"
-                  timestampString = "537209694.9804209"
+                  timestampString = "537226629.345596"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "67"
@@ -169,7 +169,7 @@
                   moduleName = "Roll_Call"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/SignInHandler.swift"
-                  timestampString = "537209694.982157"
+                  timestampString = "537226629.3481441"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "68"
@@ -185,72 +185,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DataService.swift"
-            timestampString = "537209694.882287"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "fetchUser(user:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Roll_Call.DataService.fetchUser(user: __ObjC.User, completion: (Roll_Call.Users) -&gt; ()) -&gt; ()"
-                  moduleName = "Roll_Call"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/DataService.swift"
-                  timestampString = "536614875.870218"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "422">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Roll_Call.Users) -&gt; () in closure #1 (__ObjC.DataSnapshot) -&gt; () in Roll_Call.DataService.fetchUser(user: __ObjC.User, completion: (Roll_Call.Users) -&gt; ()) -&gt; ()"
-                  moduleName = "Roll_Call"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/DataService.swift"
-                  timestampString = "536614875.873657"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "25">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DataService.swift"
-            timestampString = "537209694.882328"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "fetchUser(user:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Roll_Call/SignInVC.swift"
-            timestampString = "537209694.882369"
+            timestampString = "537226629.235454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -298,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roll_Call/SignInVC.swift"
-            timestampString = "537209694.882417"
+            timestampString = "537226629.23568"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -314,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Roll_Call/SignInViewController.swift"
-            timestampString = "537209694.882485"
+            timestampString = "537226629.235904"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "getUserData()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "getUserData(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -330,13 +266,109 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneTImeSignature.swift"
-            timestampString = "537209694.882844"
+            timestampString = "537226629.235962"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "initSignature(course:password_of_the_day:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Roll_Call/SignInViewController.swift"
+            timestampString = "537226629.236412"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "getUserData(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Roll_Call.SignInViewController.getUserData() -&gt; ()"
+                  moduleName = "Roll_Call"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/Roll_Call/SignInViewController.swift"
+                  timestampString = "537222958.703554"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Roll_Call.Users) -&gt; () in Roll_Call.SignInViewController.getUserData() -&gt; ()"
+                  moduleName = "Roll_Call"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/Roll_Call/SignInViewController.swift"
+                  timestampString = "537222958.705901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DataService.swift"
+            timestampString = "537226629.236483"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "fetchUser(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Roll_Call.DataService.fetchUser(completion: (Roll_Call.Users) -&gt; ()) -&gt; ()"
+                  moduleName = "Roll_Call"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/DataService.swift"
+                  timestampString = "537220479.939741"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "422">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Roll_Call.Users) -&gt; () in closure #1 (__ObjC.DataSnapshot) -&gt; () in Roll_Call.DataService.fetchUser(completion: (Roll_Call.Users) -&gt; ()) -&gt; ()"
+                  moduleName = "Roll_Call"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/anthonypowell/Desktop/Roll_Call/DataService.swift"
+                  timestampString = "537220479.942253"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "25">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
