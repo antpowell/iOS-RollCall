@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0310BCC21FBA1818008406E1 /* SignInHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310BCC11FBA1818008406E1 /* SignInHandler.swift */; };
-		0310C18C1D564D77005C475F /* LoginRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */; };
-		0310C18F1D56515A005C475F /* CourseSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */; };
 		0310C1921D5A43E0005C475F /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0310C1911D5A43E0005C475F /* Courses.swift */; };
 		031FF4DE1EE65D0C0026A9BF /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031FF4DD1EE65D0C0026A9BF /* FirebaseService.swift */; };
 		0321060F1FC49B9000B1F401 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0321060E1FC49B9000B1F401 /* InsetTextField.swift */; };
@@ -19,6 +17,7 @@
 		032106181FC61C8A00B1F401 /* HollowRoundedBlackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */; };
 		0352D3441E37D31900184741 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0352D3431E37D31900184741 /* Users.swift */; };
 		036826AB1C600B5D0034A15F /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036826AA1C600B5D0034A15F /* MessageComposer.swift */; };
+		03852357200037A400C9C6F1 /* roundedUIListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03852356200037A400C9C6F1 /* roundedUIListView.swift */; };
 		03A9F4EB1FF35E570067394B /* OneTImeSignature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A9F4EA1FF35E570067394B /* OneTImeSignature.swift */; };
 		03C5A3701FAF826D006AAA76 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C5A36F1FAF826D006AAA76 /* Signature.swift */; };
 		03CE154A1FC38369007490BE /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CE15491FC38369007490BE /* AuthService.swift */; };
@@ -56,8 +55,6 @@
 /* Begin PBXFileReference section */
 		0025F3A7DCF9F572D21D6FC9 /* Pods-Roll_CallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roll_CallTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roll_CallTests/Pods-Roll_CallTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0310BCC11FBA1818008406E1 /* SignInHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHandler.swift; sourceTree = "<group>"; };
-		0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegistrationViewController.swift; path = Roll_Call/LoginRegistrationViewController.swift; sourceTree = "<group>"; };
-		0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionViewController.swift; sourceTree = "<group>"; };
 		0310C1911D5A43E0005C475F /* Courses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		031FF4DD1EE65D0C0026A9BF /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		0321060E1FC49B9000B1F401 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
@@ -67,6 +64,7 @@
 		032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HollowRoundedBlackButton.swift; sourceTree = "<group>"; };
 		0352D3431E37D31900184741 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		036826AA1C600B5D0034A15F /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
+		03852356200037A400C9C6F1 /* roundedUIListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = roundedUIListView.swift; sourceTree = "<group>"; };
 		03A9F4EA1FF35E570067394B /* OneTImeSignature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTImeSignature.swift; sourceTree = "<group>"; };
 		03C5A36F1FAF826D006AAA76 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		03C840621D447C370054D150 /* Roll_Call-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Roll_Call-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -122,13 +120,12 @@
 		0310C18D1D564D95005C475F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0310C19A1D5D03FB005C475F /* RegistrationView */,
-				0310C1991D5D038F005C475F /* CourseTableView */,
 				0321060E1FC49B9000B1F401 /* InsetTextField.swift */,
 				032106101FC4A21700B1F401 /* roundedButton.swift */,
 				032106121FC5D98500B1F401 /* hollowRoundedButton.swift */,
 				032106151FC5FA9E00B1F401 /* DropShadow.swift */,
 				032106171FC61C8A00B1F401 /* HollowRoundedBlackButton.swift */,
+				03852356200037A400C9C6F1 /* roundedUIListView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -145,22 +142,6 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		0310C1991D5D038F005C475F /* CourseTableView */ = {
-			isa = PBXGroup;
-			children = (
-				0310C18E1D56515A005C475F /* CourseSelectionViewController.swift */,
-			);
-			name = CourseTableView;
-			sourceTree = "<group>";
-		};
-		0310C19A1D5D03FB005C475F /* RegistrationView */ = {
-			isa = PBXGroup;
-			children = (
-				0310C18B1D564D77005C475F /* LoginRegistrationViewController.swift */,
-			);
-			name = RegistrationView;
-			sourceTree = "<group>";
-		};
 		031FF4DC1EE65CF30026A9BF /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,17 +152,9 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
-		032106141FC5F6DE00B1F401 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		03D6AC921B88EFE9005E4E3E = {
 			isa = PBXGroup;
 			children = (
-				032106141FC5F6DE00B1F401 /* Extensions */,
 				031FF4DC1EE65CF30026A9BF /* Service */,
 				0310C1901D5A43BE005C475F /* Model */,
 				0310C18D1D564D95005C475F /* Views */,
@@ -480,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03852357200037A400C9C6F1 /* roundedUIListView.swift in Sources */,
 				0310C1921D5A43E0005C475F /* Courses.swift in Sources */,
 				03D6ACC31B891274005E4E3E /* SignInViewController.swift in Sources */,
 				0310BCC21FBA1818008406E1 /* SignInHandler.swift in Sources */,
@@ -492,11 +466,9 @@
 				03CE154C1FC3854A007490BE /* DataService.swift in Sources */,
 				03D4C7951FD7063000823957 /* CourseSelectionVC.swift in Sources */,
 				03D4C7931FD08A1F00823957 /* RegistrationVC.swift in Sources */,
-				0310C18F1D56515A005C475F /* CourseSelectionViewController.swift in Sources */,
 				032106161FC5FA9E00B1F401 /* DropShadow.swift in Sources */,
 				03C5A3701FAF826D006AAA76 /* Signature.swift in Sources */,
 				032106111FC4A21700B1F401 /* roundedButton.swift in Sources */,
-				0310C18C1D564D77005C475F /* LoginRegistrationViewController.swift in Sources */,
 				036826AB1C600B5D0034A15F /* MessageComposer.swift in Sources */,
 				03D6ACC11B89125D005E4E3E /* CourseSelectionView.swift in Sources */,
 				03CE154A1FC38369007490BE /* AuthService.swift in Sources */,

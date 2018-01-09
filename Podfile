@@ -4,12 +4,11 @@
 target 'Roll_Call' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
+pod 'SCLAlertView'
 
-# PromiseKit Pod
-pod 'PromiseKit', '~> 4.4'
 pod 'Canvas'
   # Pods from firebase for Roll_Call
-pod ‘Firebase/Core’
+pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 pod 'Firebase/Database'
 pod 'Firebase/Auth’

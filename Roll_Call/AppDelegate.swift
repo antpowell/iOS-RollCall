@@ -24,36 +24,36 @@
             // Override point for customization after application launch.
             //        FirebaseApp.configure()
             //MARK -TESTING
-            do{
-                try Auth.auth().signOut()
-            }catch{
-                print("didn't sign user out")
-            }
+//            do{
+//                try Auth.auth().signOut()
+//            }catch{
+//                print("didn't sign user out")
+//            }
+//            
+//            
+//            let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+//            let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+//            window?.makeKeyAndVisible()
+//            window?.rootViewController?.present(LoginVC, animated: true, completion: nil)
+//            print("NO USER")
             
+                    if Auth.auth().currentUser == nil{
             
-            let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
-            let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-            window?.makeKeyAndVisible()
-            window?.rootViewController?.present(LoginVC, animated: true, completion: nil)
-            print("NO USER")
+                        let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+                        let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+                        window?.makeKeyAndVisible()
+                        window?.rootViewController?.present(LoginVC, animated: true, completion: nil)
+                        print("NO USER")
+                    }else{
+                        //MARK
+            //            do{
+            //                try Auth.auth().signOut()
+            //            }catch{
+            //                print("didn't sign user out")
+            //            }
             
-            //        if Auth.auth().currentUser == nil{
-            //
-            //            let storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
-            //            let LoginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
-            //            window?.makeKeyAndVisible()
-            //            window?.rootViewController?.present(LoginVC, animated: true, completion: nil)
-            //            print("NO USER")
-            //        }else{
-            //            //MARK
-            ////            do{
-            ////                try Auth.auth().signOut()
-            ////            }catch{
-            ////                print("didn't sign user out")
-            ////            }
-            //
-            //            print("USER FOUND")
-            //        }
+                        print("USER FOUND")
+                    }
             return true
         }
         

@@ -62,13 +62,32 @@ class Users: NSObject, NSCoding {
     }
     
     func getUser() -> [String: Any]{
-        return ["_email":_email,
-               "_lastName": _lastName,
-               "_tNum": _tNum]
+        DataService.instance.fetchUser { (user) in
+    
+        }
+        return ["_email":self._email,
+                "_lastName": self._lastName,
+                "_tNum": self._tNum]
+    }
+    
+    func getEmail() -> String{
+        return _email
+    }
+    
+    func getLastName() -> String{
+        return _lastName
+    }
+    
+    func getTNum() -> String{
+        return _tNum
     }
     
     func getUserAsUsers() -> Users{
         return self
+    }
+    
+    func printUser() -> String{
+        return "Last Name: \(_lastName)\nTNumber: \(_tNum)\nEmail: \(_email)\n"
     }
     
     /**

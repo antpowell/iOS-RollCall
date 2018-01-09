@@ -11,16 +11,27 @@ import FirebaseDatabase
 
 class CourseSelectionVC: UIViewController, UITableViewDelegate, UISearchBarDelegate, UITableViewDataSource{
     
-    @IBOutlet var courseSearchBar: UISearchBar!
-    @IBOutlet var courseTableView: UITableView!
-    
     var _courseCodes:[String]! = []
     var _filteredCourseCodes:[String]! = []
     var isUserSearching = false
     
     let userDefault = UserDefaults.standard
     let searchController = UISearchController(searchResultsController: nil)
-
+    
+    @IBOutlet var courseSearchBar: UISearchBar!
+    @IBOutlet var courseTableView: UITableView!
+    
+    @IBAction func logOutWasPressed(_ sender: Any) {
+        DataService.instance.signUserOut { (success) in
+            if success{
+                self.dismiss(animated: true, completion: nil)
+                let signInVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+                self.present(signInVC!, animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,7 +98,6 @@ class CourseSelectionVC: UIViewController, UITableViewDelegate, UISearchBarDeleg
         }
     }
     
-    
     func setupSearchBar(){
         courseSearchBar.showsCancelButton = false
         courseSearchBar.placeholder = "Search CourseCode Here"
@@ -109,28 +119,24 @@ class CourseSelectionVC: UIViewController, UITableViewDelegate, UISearchBarDeleg
             isUserSearching = false
             self.courseTableView.reloadData()
         }else{
+            print(searchText == "")
             isUserSearching = true
             self.courseTableView.reloadData()
         }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        isUserSearching = true
-        searchBar.endEditing(true)
+        if (searchBar.text?.isEmpty)!{
+            isUserSearching = false
+            searchBar.endEditing(true)
+        }else{
+            isUserSearching = true
+            searchBar.endEditing(true)
+        }
+        
         self.courseTableView.reloadData()
     }
     
-    
-    
-//    func sendRollToDB(){
-//        let encodedStudent = userDefault.data(forKey: "_student")
-//        let unarchivedStudent = NSKeyedUnarchiver.unarchiveObject(with: encodedStudent!) as? Users
-//        
-//        
-//        attendanceRef.setValue(Signature(
-//            course: (userDefault.string(forKey: "courseKey"))!,
-//            user: unarchivedStudent!, password: enteredPass.text!).getFormattedSignature())
-//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

@@ -31,15 +31,6 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
         let encodedStudent = NSKeyedArchiver.archivedData(withRootObject: Users.public_instance.getUserAsUsers())
         
         userDefault.set(encodedStudent, forKey: "_student")
-        //        userDefault.set(lNameReg.text, forKey: "lNameKey")
-        //        userDefault.set(tNumReg.text, forKey: "tNumKey")
-        //        userDefault.set(userDataObject, forKey: "userObject")
-        //
-        //        userDataObject["TNum"] = tNumReg.text
-        //        userDataObject["Last Name"] = lNameReg.text
-        //        userDataObject["Email"] = eMailReg.text
-        //        userDataObject["Password"] = passwordReg.text
-        
         
     }
     
@@ -79,16 +70,7 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
             }
             
         }
-//        Users.public_instance.setInitValues(name:lNameReg.text!, id:tNumReg.text!, email:eMailReg.text!, password: passwordReg.text!)
-//        Users.public_instance.storeUserInDB()
-//        Users.public_instance
-//            .createUserWEmail(user: Users.public_instance.getUserAsUsers()) { (success) in
-//                if (success) {
-//                    print("Now we have a user from all callbacks.")
-//                    let courseSelectionView = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelectionVC")
-//                    self.present(courseSelectionView!, animated: true, completion: nil)
-//                }
-//        }
+
     }
 
     
@@ -121,15 +103,20 @@ class RegistrationVC: UIViewController, UITextFieldDelegate {
         
         switch textField{
         case lNameReg:
+            self.lNameReg.resignFirstResponder()
             self.tNumReg.becomeFirstResponder()
             break
         case tNumReg:
+            self.tNumReg.resignFirstResponder()
             self.eMailReg.becomeFirstResponder()
             break
         case eMailReg:
+            self.eMailReg.resignFirstResponder()
             self.passwordReg.becomeFirstResponder()
             break
         case passwordReg:
+            passwordReg.resignFirstResponder()
+            registrationToCourseSegue(self)
             break
         default:
             resign()

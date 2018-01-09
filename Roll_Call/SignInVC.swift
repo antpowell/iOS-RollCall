@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SCLAlertView
 
 class SignInVC: UIViewController, UITextViewDelegate {
     
@@ -18,6 +19,10 @@ class SignInVC: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userEmailAddressField.delegate = self
+        userPasswordField.delegate = self
+        
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
@@ -36,19 +41,29 @@ class SignInVC: UIViewController, UITextViewDelegate {
                     if success {
                         DataService.instance.fetchUser(user: user!, completion: { (currentUser) in
                             if currentUser.wasUserCreated {
-                                self.activityIndicator.stopAnimating()
                                 UIApplication.shared.endIgnoringInteractionEvents()
-                                let courseSelectionVC = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelectionVC")
-                                self.present(courseSelectionVC!, animated: true, completion: nil)
+                                self.activityIndicator.stopAnimating()
+                                let appearance = SCLAlertView.SCLAppearance(
+                                    showCloseButton: false
+                                )
+                                let alert = SCLAlertView(appearance: appearance)
+                                alert.addButton("OK", action: {
+                                    let courseSelectionVC = self.storyboard?.instantiateViewController(withIdentifier: "CourseSelectionVC")
+                                    self.present(courseSelectionVC!, animated: true, completion: nil)
+                                })
+                                alert.showSuccess("Congratulations", subTitle: "Log in successful")
+                                
                             }
                         })
                     }else if loginError?.localizedDescription != nil{
-                        
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.shared.endIgnoringInteractionEvents()
                         switch loginError!.localizedDescription{
                         case "The email address is already in use by another account.":
-                            print(loginError!.localizedDescription)
+                            SCLAlertView().showError("Login Error", subTitle: loginError!.localizedDescription)
                             break
                         default:
+                            SCLAlertView().showError("Login Error", subTitle: loginError!.localizedDescription)
                             print(loginError!.localizedDescription)
                             break
                             
@@ -61,5 +76,27 @@ class SignInVC: UIViewController, UITextViewDelegate {
         @IBAction func createNewUserWasPressed(_ sender: Any) {
             let registerVC = storyboard?.instantiateViewController(withIdentifier: "RegisterVC")
             present(registerVC!, animated: true, completion: nil)
+            
         }
+    
+}
+
+extension SignInVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case userEmailAddressField:
+            userEmailAddressField.resignFirstResponder()
+            userPasswordField.becomeFirstResponder()
+        case userPasswordField:
+            signInUserWithEmailWasPressed(self)
+        default:
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userEmailAddressField.resignFirstResponder()
+        userPasswordField.resignFirstResponder()
+    }
 }

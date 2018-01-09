@@ -9,15 +9,16 @@
 import UIKit
 import MessageUI
 import Firebase
+import SCLAlertView
 
 class SignInViewController: UIViewController, UITextFieldDelegate {
     
     let drNum1 = "8327418926"
     let drNum = "7138998111"
-    let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .short)
     let userDefault = UserDefaults.standard
     let messageComposer = MessageComposer()
     let rootRef = Database.database().reference()
+    let userData = [String: Any]()
     
     var attendanceRef, userRef: DatabaseReference!
     var firebaseLoginObject: [String:String]! = [:]
@@ -61,8 +62,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func getUserData() -> String{
-        OneTimeSignature.instance.initSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: userDefault.string(forKey: "passKey")!)
-//        let signature = OneTimeSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: userDefault.string(forKey: "passKey")!)
+        DataService.instance.fetchUser { (_) in
+        }
+        OneTimeSignature.instance.initSignature(course: userDefault.string(forKey: "courseKey")!, password_of_the_day: enteredPass.text!)
+        
         print(OneTimeSignature.instance.formateSignature().description)
         return OneTimeSignature.instance.formateSignature().description
     }
@@ -72,28 +75,21 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signRollNotification(_ sender: AnyObject) {
-        userDefault.set(enteredPass.text, forKey: "passKey")
-        
-        
-        let alert = UIAlertController(title: "You are about to sign the roll.", message: "Your current data consist of: \(getUserData())", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-            let innerAlert = UIAlertController(title: "Canceling", message: "You have decided to cancel signing the roll.", preferredStyle: .alert)
-            let innerOKAction = UIAlertAction(title: "OK", style: .default){ action -> Void in
+        if (enteredPass.text?.isEmpty)!{
+            let alert = SCLAlertView()
+            alert.showError("WHOA", subTitle: "Must enter Password of The Day")
+        }else{
+            getUserData()
+            let SCLAlert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+            SCLAlert.addButton("Use this signature") {
+                self.sendRollWithSMS()
+                self.sendRollToDB()
             }
-            innerAlert.addAction(innerOKAction)
-            self.present(innerAlert, animated: true, completion: nil)
-            print("You have decided to cancel signing the roll.")
-    }
-        let okAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
-            self.sendRollWithSMS()
-            self.sendRollToDB()
+            SCLAlert.addButton("Cancel") {
+                SCLAlertView().showWarning("Canceling...", subTitle: "Your signature was not applied to the roll.")
+            }
+            let alertResponder:SCLAlertViewResponder = SCLAlert.showNotice("Verify Your Signature", subTitle: "\(OneTimeSignature.instance.printSignature())")
         }
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        print("Composing Message...")
-        self.present(alert, animated: true, completion: nil )
-        
-        print(getUserData())
     }
 
     func sendRollWithSMS(){
@@ -110,8 +106,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func sendRollToDB(){
-        let encodedStudent = userDefault.data(forKey: "_student")
-        let unarchivedStudent = NSKeyedUnarchiver.unarchiveObject(with: encodedStudent!) as? Users
         OneTimeSignature.instance.signIn()
 
     }

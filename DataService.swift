@@ -23,12 +23,6 @@ class DataService{
     private var _REF_ATTENDANCE = DB_BASE.child("Attendance")
     private var _COURSE_CODES: [String] = []
     
-    //    init(){
-    //        self.fetchCourses { (courses) in
-    //            self._COURSE_CODES = (courses["Codes"])!
-    //        }
-    //    }
-    
     var REF_BASE: DatabaseReference{
         return _REF_BASE
     }
@@ -77,23 +71,14 @@ class DataService{
         })
     }
     
-    func signStudentIn(course:String, pod: String, completion: @escaping (Bool, String?) -> ()){
-//        REF_ATTENDANCE.child(course).setValue(OneTimeSignature(course: course, password_of_the_day: pod).formateSignature()){
-//            (err, ref) -> Void in
-//            if err != nil {
-//                print("error in signing student in: \(String(describing: err))")
-//                completion(false, "\(String(describing: err))")
-//                return
-//            }else {
-//                completion(true, nil)
-//                return
-//            }
-//
-//        }
-        
-        //// USE THIS FORM FIND CORRECTION FOR THIS TO WORK
-//        REF_ATTENDANCE.child(course).child(date).child(_tNum).setValue(OneTimeSignature(course: course, password_of_the_day: pod).formateSignature())
-        //// ------------------------><--------------------------
+    func fetchUser(completion: @escaping (Users) -> ()){
+        self.REF_USERS.child((Auth.auth().currentUser?.uid)!).observeSingleEvent(of: .value, with: { (s) in
+            let userData = s.value as! [String: Any]
+            Users.public_instance.formateUser(userSnapshot: userData, completion: { (user) in
+                print(user.description)
+                completion(user)
+            })
+        })
     }
     
     func storeUserDataInDB(user: User, userStored: @escaping (Bool) -> ()){
@@ -107,5 +92,16 @@ class DataService{
                 userStored(false)
             }
         }
+    }
+    
+    func signUserOut(userSignedOut: @escaping (Bool)->()){
+        do{
+            try Auth.auth().signOut()
+            userSignedOut(true)
+        }catch{
+            print("Unable to sign user out")
+            userSignedOut(false)
+        }
+        
     }
 }
